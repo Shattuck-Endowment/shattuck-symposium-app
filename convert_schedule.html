@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symposium JSON Generator</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #F4F4F7; color: #333; padding: 40px; max-width: 800px; margin: 0 auto; }
+        h1 { color: #043927; font-family: serif; border-bottom: 2px solid #C4B581; padding-bottom: 10px; }
+        .form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
+        label { font-weight: 600; margin-bottom: 5px; font-size: 14px; }
+        input, textarea, select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; font-family: inherit; }
+        textarea { resize: vertical; min-height: 80px; }
+        button { background-color: #043927; color: #C4B581; border: none; padding: 12px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 10px; transition: background-color 0.2s; }
+        button:hover { background-color: #06543b; }
+        #output-container { margin-top: 40px; }
+        pre { background-color: #2b2b2b; color: #a9b7c6; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+        .row { display: flex; gap: 15px; }
+        .row > .form-group { flex: 1; }
+    </style>
+</head>
+<body>
+
+    <h1>Symposium Event Parser</h1>
+    <p>Enter your Word document data below. Dates and times will be automatically converted to ISO 8601 strict formatting for Dart parsing.</p>
+
+    <div id="event-form">
+        <div class="row">
+            <div class="form-group">
+                <label for="eventDate">Symposium Date</label>
+                <input type="date" id="eventDate" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location (Building / Room)</label>
+                <input type="text" id="location" placeholder="e.g., Foothill Suite" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="startTime">Start Time</label>
+                <input type="time" id="startTime" required>
+            </div>
+            <div class="form-group">
+                <label for="endTime">End Time</label>
+                <input type="time" id="endTime" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Event Title</label>
+            <input type="text" id="title" placeholder="e.g., Registration | Welcome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="shortDesc">Short Description (Displays on card)</label>
+            <textarea id="shortDesc" placeholder="e.g., Greeting - Dr. Sheree L. Meyer..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="longDesc">Long Description (Optional - Displays on tap expansion)</label>
+            <textarea id="longDesc" placeholder="Detailed multi-disciplinary information..."></textarea>
+        </div>
+
+        <button onclick="addEvent()">Add Event to Payload</button>
+    </div>
+
+    <div id="output-container">
+        <label>Generated JSON Payload</label>
+        <pre id="jsonOutput">[\n\n]</pre>
+    </div>
+
+    <script>
+        const events = [];
+
+        function addEvent() {
+            const date = document.getElementById('eventDate').value;
+            const startTime = document.getElementById('startTime').value;
+            const endTime = document.getElementById('endTime').value;
+            const title = document.getElementById('title').value;
+            const location = document.getElementById('location').value;
+            const shortDesc = document.getElementById('shortDesc').value;
+            const longDesc = document.getElementById('longDesc').value;
+
+            if (!date || !startTime || !endTime || !title || !location || !shortDesc) {
+                alert("Please fill out all required fields before adding the event.");
+                return;
+            }
+
+            // Construct strict ISO 8601 timestamps (YYYY-MM-DDTHH:mm:ss)
+            const isoStart = `${date}T${startTime}:00`;
+            const isoEnd = `${date}T${endTime}:00`;
+
+            const eventObj = {
+                title: title.trim(),
+                location: location.trim(),
+                startTime: isoStart,
+                endTime: isoEnd,
+                shortDescription: shortDesc.trim(),
+                longDescription: longDesc.trim() === "" ? null : longDesc.trim()
+            };
+
+            events.push(eventObj);
+            
+            // Render to screen with 4-space indentation for readability
+            document.getElementById('jsonOutput').textContent = JSON.stringify(events, null, 4);
+
+            // Clear text fields for the next entry, preserving the date to speed up workflow
+            document.getElementById('title').value = '';
+            document.getElementById('shortDesc').value = '';
+            document.getElementById('longDesc').value = '';
+            document.getElementById('startTime').value = '';
+            document.getElementById('endTime').value = '';
+            document.getElementById('title').focus();
+        }
+    </script>
+</body>
+</html>
