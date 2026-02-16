@@ -1,25 +1,42 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-// --- Data Model ---
 class SymposiumEvent {
   final String title;
   final String location;
   final DateTime startTime;
   final DateTime endTime;
-  final String shortDescription;
+  final String? shortDescription;
   final String? longDescription;
+  final bool isSpecial;
 
   SymposiumEvent({
     required this.title,
     required this.location,
     required this.startTime,
     required this.endTime,
-    required this.shortDescription,
+    this.shortDescription,
     this.longDescription,
+    this.isSpecial = false,
   });
 
+  factory SymposiumEvent.fromJson(Map<String, dynamic> json) {
+    return SymposiumEvent(
+      title: json['title'] as String,
+      location: json['location'] as String,
+
+      startTime: DateTime.parse(json['startTime'] as String),
+      endTime: DateTime.parse(json['endTime'] as String),
+      shortDescription: json['shortDescription'] as String?,
+      longDescription: json['longDescription'] as String?,
+      isSpecial: json['isSpecial'] as bool? ?? false,
+    );
+  }
+
+  // Returns true if current time is within the event window
   bool get isLive {
     final now = DateTime.now();
     return now.isAfter(startTime) && now.isBefore(endTime);
@@ -41,43 +58,14 @@ class _SchedulePageState extends State<SchedulePage> {
   String _searchQuery = "";
   Timer? _liveTimer;
 
-  late final List<SymposiumEvent> _allEvents;
+  List<SymposiumEvent> _allEvents = [];
+  List<DateTime> _eventDates = [];
+  bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-
-    final today = DateTime.now();
-    _allEvents = [
-      SymposiumEvent(
-        title: "Registration | Welcome",
-        location: "Foothill Suite",
-        startTime: DateTime(today.year, today.month, today.day, 8, 0),
-        endTime: DateTime(today.year, today.month, today.day, 10, 0),
-        shortDescription:
-            "Greeting - Dr. Sheree L. Meyer, Dean of the College of Arts and Letters.",
-      ),
-      SymposiumEvent(
-        title: "Shifting American Landscapes",
-        location: "Pacific I Room",
-        startTime: DateTime(today.year, today.month, today.day, 10, 0),
-        endTime: DateTime(today.year, today.month, today.day, 14, 0),
-        shortDescription:
-            "Chair: Dr. Khal Schneider. Panel discussion on territorial shifts.",
-        longDescription:
-            "This interactive session will delve deep into the geographical and political shifting of boundaries during the early colonial period. Scholars will present primary source maps and lead a multidisciplinary discussion on how engaging with historical topography redefines our understanding of early settlements.",
-      ),
-      SymposiumEvent(
-        title: "Keynote: Minutemen Revisited",
-        location: "Main Hall",
-        startTime: DateTime(today.year, today.month, today.day + 1, 9, 0),
-        endTime: DateTime(today.year, today.month, today.day + 1, 10, 30),
-        shortDescription:
-            "Dr. Robert A. Gross, Draper Professor of Early American History.",
-        longDescription:
-            "A comprehensive re-evaluation of the social dynamics surrounding the colonial militias.",
-      ),
-    ];
+    _loadEvents();
 
     _searchController.addListener(() {
       setState(() {
@@ -86,7 +74,7 @@ class _SchedulePageState extends State<SchedulePage> {
     });
 
     _liveTimer = Timer.periodic(const Duration(minutes: 1), (timer) {
-      setState(() {});
+      if (mounted) setState(() {});
     });
   }
 
@@ -97,8 +85,55 @@ class _SchedulePageState extends State<SchedulePage> {
     super.dispose();
   }
 
-  List<SymposiumEvent> _getFilteredEventsForDay(int dayOffset) {
-    final targetDate = DateTime.now().add(Duration(days: dayOffset));
+  Future<void> _loadEvents() async {
+    try {
+      final String response = await rootBundle.loadString('assets/events.json');
+      final List<dynamic> data = jsonDecode(response);
+
+      final List<SymposiumEvent> loadedEvents = data
+          .map((json) => SymposiumEvent.fromJson(json))
+          .toList();
+      final Set<String> uniqueDateStrings = {};
+      final List<DateTime> dates = [];
+
+      loadedEvents.sort((a, b) => a.startTime.compareTo(b.startTime));
+
+      for (var event in loadedEvents) {
+        String dateKey =
+            "${event.startTime.year}-${event.startTime.month}-${event.startTime.day}";
+        if (!uniqueDateStrings.contains(dateKey)) {
+          uniqueDateStrings.add(dateKey);
+          dates.add(
+            DateTime(
+              event.startTime.year,
+              event.startTime.month,
+              event.startTime.day,
+            ),
+          );
+        }
+      }
+
+      if (mounted) {
+        setState(() {
+          _allEvents = loadedEvents;
+          _eventDates = dates;
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      debugPrint("Error loading events: $e");
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  List<SymposiumEvent> _getFilteredEventsForTab(int tabIndex) {
+    if (tabIndex >= _eventDates.length) return [];
+
+    final targetDate = _eventDates[tabIndex];
 
     return _allEvents.where((event) {
       final isSameDay =
@@ -106,11 +141,11 @@ class _SchedulePageState extends State<SchedulePage> {
           event.startTime.month == targetDate.month &&
           event.startTime.day == targetDate.day;
       if (!isSameDay) return false;
-
       if (_searchQuery.isEmpty) return true;
       return event.title.toLowerCase().contains(_searchQuery) ||
           event.location.toLowerCase().contains(_searchQuery) ||
-          event.shortDescription.toLowerCase().contains(_searchQuery) ||
+          (event.shortDescription?.toLowerCase().contains(_searchQuery) ??
+              false) ||
           (event.longDescription?.toLowerCase().contains(_searchQuery) ??
               false);
     }).toList();
@@ -126,8 +161,10 @@ class _SchedulePageState extends State<SchedulePage> {
 
   @override
   Widget build(BuildContext context) {
+    int tabCount = _eventDates.isEmpty ? 3 : _eventDates.length;
+
     return DefaultTabController(
-      length: 3,
+      length: tabCount,
       child: Scaffold(
         backgroundColor: const Color(0xFFF4F4F7),
         body: Column(
@@ -135,15 +172,14 @@ class _SchedulePageState extends State<SchedulePage> {
             _buildHeader(context),
             Container(
               color: hornetGreen,
-              child: const TabBar(
+              child: TabBar(
                 indicatorColor: hornetGold,
                 labelColor: hornetGold,
                 unselectedLabelColor: Colors.white70,
-                tabs: [
-                  Tab(text: "Day 1"),
-                  Tab(text: "Day 2"),
-                  Tab(text: "Day 3"),
-                ],
+                tabs: List.generate(
+                  tabCount,
+                  (index) => Tab(text: "Day ${index + 1}"),
+                ),
               ),
             ),
             Padding(
@@ -172,13 +208,15 @@ class _SchedulePageState extends State<SchedulePage> {
               ),
             ),
             Expanded(
-              child: TabBarView(
-                children: [
-                  _buildEventList(_getFilteredEventsForDay(0)),
-                  _buildEventList(_getFilteredEventsForDay(1)),
-                  _buildEventList(_getFilteredEventsForDay(2)),
-                ],
-              ),
+              child: _isLoading
+                  ? const Center(
+                      child: CircularProgressIndicator(color: hornetGold),
+                    )
+                  : TabBarView(
+                      children: List.generate(tabCount, (index) {
+                        return _buildEventList(_getFilteredEventsForTab(index));
+                      }),
+                    ),
             ),
           ],
         ),
@@ -199,13 +237,16 @@ class _SchedulePageState extends State<SchedulePage> {
             Positioned(
               left: 8,
               top: 0,
-              child: IconButton(
-                icon: const Icon(
-                  CupertinoIcons.back,
-                  color: Colors.white,
-                  size: 28,
+              bottom: 0,
+              child: Center(
+                child: IconButton(
+                  icon: const Icon(
+                    CupertinoIcons.back,
+                    color: Colors.white,
+                    size: 28,
+                  ),
+                  onPressed: () => Navigator.pop(context),
                 ),
-                onPressed: () => Navigator.pop(context),
               ),
             ),
             Column(
@@ -239,6 +280,16 @@ class _SchedulePageState extends State<SchedulePage> {
                 ),
                 const SizedBox(height: 4),
                 const Text(
+                  "Colonial American History",
+                  style: TextStyle(
+                    fontFamily: 'LuxuriousScript',
+                    color: Colors.white,
+                    fontSize: 20,
+                    height: 1.0,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const Text(
                   "SYMPOSIUM",
                   style: TextStyle(
                     fontFamily: 'Cinzel',
@@ -261,7 +312,7 @@ class _SchedulePageState extends State<SchedulePage> {
     if (events.isEmpty) {
       return const Center(
         child: Text(
-          "No events found.",
+          "No events found for this day.",
           style: TextStyle(color: Colors.grey, fontSize: 16),
         ),
       );
@@ -281,7 +332,6 @@ class _SchedulePageState extends State<SchedulePage> {
   }
 }
 
-// --- Expandable Event Card ---
 class EventCard extends StatefulWidget {
   final SymposiumEvent event;
   final String timeString;
@@ -298,6 +348,7 @@ class _EventCardState extends State<EventCard> {
   @override
   Widget build(BuildContext context) {
     final bool isLive = widget.event.isLive;
+    final bool isSpecial = widget.event.isSpecial;
 
     return GestureDetector(
       onTap: () {
@@ -307,129 +358,160 @@ class _EventCardState extends State<EventCard> {
           });
         }
       },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
+      child: Container(
         margin: const EdgeInsets.only(bottom: 16),
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          border: isLive
-              ? Border.all(color: const Color(0xFFC4B581), width: 2)
-              : null,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.03),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.event.location,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        widget.event.title,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.black87,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        widget.timeString,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.black54,
-                        ),
-                      ),
-                    ],
-                  ),
+        decoration: (isSpecial && !isLive)
+            ? BoxDecoration(
+                borderRadius: BorderRadius.circular(22),
+                gradient: const LinearGradient(
+                  colors: [Colors.redAccent, Colors.white, Colors.blueAccent],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-                if (isLive) ...[
-                  const SizedBox(width: 12),
-                  Row(
-                    children: [
-                      Container(
-                        width: 12,
-                        height: 12,
-                        decoration: const BoxDecoration(
-                          color: Colors.redAccent,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      const SizedBox(width: 6),
-                      const Text(
-                        "Live",
-                        style: TextStyle(
-                          color: Color(0xFFC4B581),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
                   ),
                 ],
-              ],
-            ),
-            const SizedBox(height: 16),
-            Text(
-              widget.event.shortDescription,
-              style: const TextStyle(
-                fontSize: 15,
-                color: Colors.black54,
-                height: 1.4,
-              ),
-            ),
-            AnimatedSize(
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-              child: SizedBox(
-                width: double.infinity,
-                child: _isExpanded && widget.event.longDescription != null
-                    ? Padding(
-                        padding: const EdgeInsets.only(top: 16.0),
-                        child: Text(
-                          widget.event.longDescription!,
+              )
+            : null,
+        padding: (isSpecial && !isLive)
+            ? const EdgeInsets.all(3.0)
+            : EdgeInsets.zero,
+
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            border: isLive
+                ? Border.all(color: const Color(0xFFC4B581), width: 2)
+                : null,
+            boxShadow: (!isSpecial && !isLive)
+                ? [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.03),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ]
+                : null,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.event.location,
                           style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.black87,
-                            height: 1.5,
+                            fontSize: 14,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                      )
-                    : const SizedBox.shrink(),
+                        const SizedBox(height: 4),
+                        Text(
+                          widget.event.title,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.black87,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          widget.timeString,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Live Badge
+                  if (isLive) ...[
+                    const SizedBox(width: 12),
+                    Row(
+                      children: [
+                        Container(
+                          width: 12,
+                          height: 12,
+                          decoration: const BoxDecoration(
+                            color: Colors.redAccent,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 6),
+                        const Text(
+                          "Live",
+                          style: TextStyle(
+                            color: Color(0xFFC4B581),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ],
               ),
-            ),
-            if (widget.event.longDescription != null) ...[
-              const SizedBox(height: 12),
-              Center(
-                child: Icon(
-                  _isExpanded
-                      ? CupertinoIcons.chevron_up
-                      : CupertinoIcons.chevron_down,
-                  color: Colors.grey.shade400,
-                  size: 20,
+
+              if (widget.event.shortDescription != null) ...[
+                const SizedBox(height: 16),
+                Text(
+                  widget.event.shortDescription!,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    color: Colors.black54,
+                    height: 1.4,
+                  ),
+                ),
+              ],
+
+              AnimatedSize(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                child: SizedBox(
+                  width: double.infinity,
+                  child: _isExpanded && widget.event.longDescription != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(top: 16.0),
+                          child: Text(
+                            widget.event.longDescription!,
+                            style: const TextStyle(
+                              fontSize: 15,
+                              color: Colors.black87,
+                              height: 1.5,
+                            ),
+                          ),
+                        )
+                      : const SizedBox.shrink(),
                 ),
               ),
+
+              if (widget.event.longDescription != null) ...[
+                const SizedBox(height: 12),
+                Center(
+                  child: Icon(
+                    _isExpanded
+                        ? CupertinoIcons.chevron_up
+                        : CupertinoIcons.chevron_down,
+                    color: Colors.grey.shade400,
+                    size: 20,
+                  ),
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
