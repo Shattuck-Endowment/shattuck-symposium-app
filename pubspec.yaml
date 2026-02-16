@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:
@@ -79,11 +80,33 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icon/icon-250-512.png"
-  adaptive_icon_background: "#1e5a3c"  # Dark green from logo
-  adaptive_icon_foreground: "assets/icon/icon-250-512.png"
-  ios_background_color: "#1e5a3c"
   remove_alpha_ios: true
+  background_color_ios: "#043927"
+  image_path: "assets/icon/250_icon.png"
+  web:
+    generate: true
+    image_path: "assets/icon/250_icon.png"
+    background_color: "#043927"
+    theme_color: "#043927"
+  windows:
+    generate: true
+    image_path: "assets/icon/250_icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/icon/250_icon.png"
+
+flutter_native_splash:
+  color: "#043927"
+  image: assets/splash/shattuck_splash_logo.png
+  
+  android_12:
+    image: assets/splash/shattuck_splash_logo.png
+    color: "#043927"
+
+  fullscreen: true
+  ios: true
+  android: true
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
