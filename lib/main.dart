@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'schedule.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const SymposiumApp());
@@ -136,6 +137,17 @@ class _HomePageState extends State<HomePage> {
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
+  Future<void> _launchRegistration() async {
+    // TODO: Replace this with the actual registration URL
+    final Uri url = Uri.parse(
+      'https://www.csus.edu/college/arts-letters/history/shattuck-endowment/programs.html',
+    );
+
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -150,7 +162,9 @@ class HomeView extends StatelessWidget {
               _buildActionCard(
                 context,
                 title: "Schedule",
-                subtitle: "View Daily Schedule",
+                subtitle: "View",
+                iconIOS: CupertinoIcons.calendar,
+                iconAndroid: Icons.calendar_month,
                 onTap: () {
                   Navigator.push(
                     context,
@@ -160,15 +174,16 @@ class HomeView extends StatelessWidget {
                   );
                 },
               ),
-              // const SizedBox(height: 16),
-              // _buildActionCard(
-              //   context,
-              //   title: "Abstracts",
-              //   subtitle: "View Presentation Info",
-              //   onTap: () {
-              //     // Navigate to Abstracts Page (if you have one)
-              //   },
-              // ),
+              const SizedBox(height: 16),
+              _buildActionCard(
+                context,
+                title: "Register Here",
+                subtitle: "Go",
+                iconIOS:
+                    CupertinoIcons.arrow_up_right_circle, // Ticket icon for iOS
+                iconAndroid: Icons.arrow_outward, // Ticket icon for Android
+                onTap: _launchRegistration,
+              ),
             ],
           ),
         ),
@@ -209,8 +224,11 @@ class HomeView extends StatelessWidget {
     required String title,
     required String subtitle,
     required VoidCallback onTap,
+    required IconData iconIOS, // Now required
+    required IconData iconAndroid, // Now required
   }) {
     final bool isIOS = Platform.isIOS;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -218,6 +236,14 @@ class HomeView extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
+          // Optional: Add a subtle shadow for depth
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.03),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
         child: Row(
           children: [
@@ -231,8 +257,9 @@ class HomeView extends StatelessWidget {
               style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
             const SizedBox(width: 12),
+            // Use the passed icons
             Icon(
-              isIOS ? CupertinoIcons.calendar : Icons.calendar_month,
+              isIOS ? iconIOS : iconAndroid,
               color: Colors.blueAccent,
               size: 22,
             ),
@@ -359,25 +386,18 @@ class SharedHeader extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: const [
                 Text(
-                  "The ",
-                  style: TextStyle(
-                    fontFamily: 'LuxuriousScript',
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-                Text(
-                  "SHATTUCK",
+                  "BECOMING AMERICANS",
                   style: TextStyle(
                     fontFamily: 'Cinzel',
                     color: Color(0xFFC4B581),
-                    fontSize: 32,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 0.5,
                     height: 1.0,
@@ -385,25 +405,13 @@ class SharedHeader extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 4),
-            const Text(
-              "Colonial American History",
-              style: TextStyle(
-                fontFamily: 'LuxuriousScript',
-                color: Colors.white,
-                fontSize: 20,
-                height: 1.0,
-              ),
-            ),
             const SizedBox(height: 8),
             const Text(
-              "SYMPOSIUM",
+              "The Shattuck American History Symposium",
               style: TextStyle(
-                fontFamily: 'Cinzel',
-                color: Color(0xFFC4B581),
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.0,
+                // fontFamily: 'LuxuriousScript',
+                color: Colors.white,
+                fontSize: 16,
                 height: 1.0,
               ),
             ),

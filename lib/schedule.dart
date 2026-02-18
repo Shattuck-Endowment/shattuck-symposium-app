@@ -252,25 +252,18 @@ class _SchedulePageState extends State<SchedulePage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
                   children: const [
                     Text(
-                      "The ",
-                      style: TextStyle(
-                        fontFamily: 'LuxuriousScript',
-                        color: Colors.white,
-                        fontSize: 24,
-                      ),
-                    ),
-                    Text(
-                      "SHATTUCK",
+                      "BECOMING AMERICANS",
                       style: TextStyle(
                         fontFamily: 'Cinzel',
-                        color: hornetGold,
-                        fontSize: 32,
+                        color: Color(0xFFC4B581),
+                        fontSize: 28,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 0.5,
                         height: 1.0,
@@ -278,25 +271,13 @@ class _SchedulePageState extends State<SchedulePage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 4),
-                const Text(
-                  "Colonial American History",
-                  style: TextStyle(
-                    fontFamily: 'LuxuriousScript',
-                    color: Colors.white,
-                    fontSize: 20,
-                    height: 1.0,
-                  ),
-                ),
                 const SizedBox(height: 8),
                 const Text(
-                  "SYMPOSIUM",
+                  "The Shattuck American History Symposium",
                   style: TextStyle(
-                    fontFamily: 'Cinzel',
-                    color: hornetGold,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.0,
+                    // fontFamily: 'LuxuriousScript',
+                    color: Colors.white,
+                    fontSize: 16,
                     height: 1.0,
                   ),
                 ),
