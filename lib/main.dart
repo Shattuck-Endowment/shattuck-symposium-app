@@ -1,10 +1,23 @@
 import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'schedule.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  // Enforce binding initialization before interacting with the asset bundle
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Asynchronously stream the font license into the global registry
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('assets/OFL.txt');
+    yield LicenseEntryWithLineBreaks([
+      'Google Fonts (Cinzel, Noto Serif)',
+    ], license);
+  });
   runApp(const SymposiumApp());
 }
 
@@ -330,6 +343,50 @@ class InfoView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.03),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                        child: Image.asset(
+                          'assets/img/Peter H Shattuck.jpg',
+                          // height: 220,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Text(
+                          "Dr. Peter H. Shattuck",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black54,
+                            fontStyle: FontStyle.italic,
+                            height: 1.5,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 40),
                 const Text(
                   "Team",
                   style: TextStyle(
@@ -354,13 +411,76 @@ class InfoView extends StatelessWidget {
                     ],
                   ),
                   child: const Text(
-                    "The Shattuck Symposium App was developed in 2026 for the Shattuck Symposium held at CSU, Sacramento in honor of America's 250th Anniversary. The application was developed under guidance from the Shattuck Endowed Chair in Colonial History, Dr. Antonio T. Bly (antonio.bly@csus.edu). Akal Ustat Singh (CSUS Computer Science C/O 2026) developed this application (akalustat.singh@gmail.com).",
+                    "The Shattuck Symposium App was developed in 2026 for the Shattuck Symposium held at CSU, Sacramento in honor of America's 250th Anniversary by Akal Ustat Singh (C/O 2026, Computer Science) under the guidance of Dr. Antonio T Bly (Shattuck Endowed Chair in Colonial American History). For more details, contact akalustat.singh@gmail.com.",
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black87,
                       height: 1.6,
                     ),
                     textAlign: TextAlign.justify,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LicensePage(
+                          applicationName: 'Shattuck Symposium',
+                          applicationVersion: '1.0.0',
+                          applicationLegalese:
+                              '© 2026 California State University, Sacramento',
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.03),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Software Licenses",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        const Spacer(),
+                        const Text(
+                          "View",
+                          style: TextStyle(fontSize: 14, color: Colors.grey),
+                        ),
+                        const SizedBox(width: 12),
+                        Icon(
+                          Platform.isIOS
+                              ? CupertinoIcons.doc_text
+                              : Icons.description,
+                          color: Colors.blueAccent,
+                          size: 22,
+                        ),
+                        const SizedBox(width: 8),
+                        Icon(
+                          Platform.isIOS
+                              ? CupertinoIcons.chevron_right
+                              : Icons.chevron_right,
+                          color: Colors.grey.shade400,
+                          size: 20,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -391,27 +511,25 @@ class SharedHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
-              children: const [
+              children: [
                 Text(
                   "BECOMING AMERICANS",
-                  style: TextStyle(
-                    fontFamily: 'Cinzel',
+                  style: GoogleFonts.cinzel(
                     color: Color(0xFFC4B581),
-                    fontSize: 28,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    letterSpacing: 0.5,
+                    // letterSpacing: ,
                     height: 1.0,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 8),
-            const Text(
+            Text(
               "The Shattuck American History Symposium",
-              style: TextStyle(
-                // fontFamily: 'LuxuriousScript',
+              style: GoogleFonts.notoSerif(
+                fontSize: 12,
                 color: Colors.white,
-                fontSize: 16,
                 height: 1.0,
               ),
             ),

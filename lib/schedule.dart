@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SymposiumEvent {
   final String title;
@@ -12,6 +13,7 @@ class SymposiumEvent {
   final String? shortDescription;
   final String? longDescription;
   final bool isSpecial;
+  final String? session; // New nullable property
 
   SymposiumEvent({
     required this.title,
@@ -21,22 +23,22 @@ class SymposiumEvent {
     this.shortDescription,
     this.longDescription,
     this.isSpecial = false,
+    this.session,
   });
 
   factory SymposiumEvent.fromJson(Map<String, dynamic> json) {
     return SymposiumEvent(
       title: json['title'] as String,
       location: json['location'] as String,
-
       startTime: DateTime.parse(json['startTime'] as String),
       endTime: DateTime.parse(json['endTime'] as String),
       shortDescription: json['shortDescription'] as String?,
       longDescription: json['longDescription'] as String?,
       isSpecial: json['isSpecial'] as bool? ?? false,
+      session: json['session'] as String?, // Safe parsing of the optional key
     );
   }
 
-  // Returns true if current time is within the event window
   bool get isLive {
     final now = DateTime.now();
     return now.isAfter(startTime) && now.isBefore(endTime);
@@ -87,7 +89,9 @@ class _SchedulePageState extends State<SchedulePage> {
 
   Future<void> _loadEvents() async {
     try {
-      final String response = await rootBundle.loadString('assets/events.json');
+      final String response = await rootBundle.loadString(
+        'assets/events_obfuscated.json',
+      );
       final List<dynamic> data = jsonDecode(response);
 
       final List<SymposiumEvent> loadedEvents = data
@@ -249,39 +253,40 @@ class _SchedulePageState extends State<SchedulePage> {
                 ),
               ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: const [
-                    Text(
-                      "BECOMING AMERICANS",
-                      style: TextStyle(
-                        fontFamily: 'Cinzel',
-                        color: Color(0xFFC4B581),
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 0.5,
-                        height: 1.0,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        "BECOMING AMERICANS",
+                        style: GoogleFonts.cinzel(
+                          color: Color(0xFFC4B581),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          // letterSpacing: ,
+                          height: 1.0,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  "The Shattuck American History Symposium",
-                  style: TextStyle(
-                    // fontFamily: 'LuxuriousScript',
-                    color: Colors.white,
-                    fontSize: 16,
-                    height: 1.0,
+                    ],
                   ),
-                ),
-              ],
+                  const SizedBox(height: 8),
+                  Text(
+                    "The Shattuck American History Symposium",
+                    style: GoogleFonts.notoSerif(
+                      fontSize: 12,
+                      color: Colors.white,
+                      height: 1.0,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -313,6 +318,7 @@ class _SchedulePageState extends State<SchedulePage> {
   }
 }
 
+// --- Expandable Event Card ---
 class EventCard extends StatefulWidget {
   final SymposiumEvent event;
   final String timeString;
@@ -341,6 +347,7 @@ class _EventCardState extends State<EventCard> {
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),
+        // Tricolor Gradient Border for Special Sessions (if not live)
         decoration: (isSpecial && !isLive)
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(22),
@@ -391,6 +398,21 @@ class _EventCardState extends State<EventCard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Conditionally inject the Session overline if it exists
+                        if (widget.event.session != null) ...[
+                          Text(
+                            widget.event.session!.toUpperCase(),
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Color(
+                                0xFF043927,
+                              ), // Hornet Green establishes it as a category
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 0.8,
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                        ],
                         Text(
                           widget.event.location,
                           style: const TextStyle(
@@ -419,30 +441,16 @@ class _EventCardState extends State<EventCard> {
                       ],
                     ),
                   ),
-                  // Live Badge
-                  if (isLive) ...[
-                    const SizedBox(width: 12),
-                    Row(
-                      children: [
-                        Container(
-                          width: 12,
-                          height: 12,
-                          decoration: const BoxDecoration(
-                            color: Colors.redAccent,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 6),
-                        const Text(
-                          "Live",
-                          style: TextStyle(
-                            color: Color(0xFFC4B581),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  const SizedBox(width: 12),
+                  // Right-aligned column to safely stack active badges
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      if (isSpecial) _buildAmerica250Badge(),
+                      if (isSpecial && isLive) const SizedBox(height: 8),
+                      if (isLive) _buildLiveBadge(),
+                    ],
+                  ),
                 ],
               ),
 
@@ -495,6 +503,60 @@ class _EventCardState extends State<EventCard> {
           ),
         ),
       ),
+    );
+  }
+
+  // Extracted badge logic to keep the build method readable
+  Widget _buildAmerica250Badge() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF0F4F8), // Soft contrasting background
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: const Color(0xFF0A3161),
+          width: 1,
+        ), // Strict Navy Blue border
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Text("🇺🇸", style: TextStyle(fontSize: 14)),
+          SizedBox(width: 4),
+          Text(
+            "America 250",
+            style: TextStyle(
+              color: Color(0xFF0A3161),
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLiveBadge() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 12,
+          height: 12,
+          decoration: const BoxDecoration(
+            color: Colors.redAccent,
+            shape: BoxShape.circle,
+          ),
+        ),
+        const SizedBox(width: 6),
+        const Text(
+          "Live",
+          style: TextStyle(
+            color: Color(0xFFC4B581),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
   }
 }

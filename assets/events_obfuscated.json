@@ -1,0 +1,322 @@
+[
+  {
+    "title": "Registration | Welcome | Light Refreshments",
+    "location": "Summit Room",
+    "startTime": "2026-03-18T09:00:00",
+    "endTime": "2026-03-18T09:45:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Revolutionary Dramaturgy | A Theatrical Interpretations",
+    "location": "Pacific Suite",
+    "startTime": "2026-03-18T10:00:00",
+    "endTime": "2026-03-18T11:00:00",
+    "shortDescription": "Director: Melinda Wilson Ramsey (Theater, California State University, Sacramento)",
+    "longDescription": null,
+    "session": null,
+    "isSpecial": true
+  },
+  {
+    "title": "“Another Tribe” – A Gallery of 13 Revolutionary Women in Revolutionary Times",
+    "location": "Foothill Suite",
+    "startTime": "2026-03-18T10:00:00",
+    "endTime": "2026-03-18T11:00:00",
+    "shortDescription": "Moderator: Mrs. Donnamaria Bly (Old Dominion University)",
+    "longDescription": null,
+    "session": null,
+    "isSpecial": true
+  },
+  {
+    "title": "50 Points of Light – The Stars and Stripes Exhibit",
+    "location": "Forest Suite",
+    "startTime": "2026-03-18T11:00:00",
+    "endTime": "2026-03-18T12:00:00",
+    "shortDescription": "",
+    "longDescription": null,
+    "session": null,
+    "isSpecial": true
+  },
+  {
+    "title": "Peter H. Shattuck Rare Books Collection Exhibit",
+    "location": "Donald & Beverly Gerth Special Collections & University Archives",
+    "startTime": "2026-03-18T12:00:00",
+    "endTime": "2026-03-18T13:00:00",
+    "shortDescription": "Curator: Ms. Sarah Allison, Head of Donald & Beverly Gerth Special Collections & University Archives",
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Reception",
+    "location": "Library Breezeway",
+    "startTime": "2026-03-18T13:00:00",
+    "endTime": "2026-03-18T14:30:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "The Public Reading of the Declaration of Independence",
+    "location": "Library Quad",
+    "startTime": "2026-03-18T14:30:00",
+    "endTime": "2026-03-18T15:00:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Panel",
+    "location": "Miwok Room",
+    "startTime": "2026-03-18T15:00:00",
+    "endTime": "2026-03-18T16:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "isSpecial": false,
+    "session": "Session 1 - Concurrent Panels"
+  },
+  {
+    "title": "Panel",
+    "location": "Maidu Room",
+    "startTime": "2026-03-18T15:00:00",
+    "endTime": "2026-03-18T16:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 1 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Dinner",
+    "location": "Orchard Suite",
+    "startTime": "2026-03-18T16:00:00",
+    "endTime": "2026-03-18T17:30:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Registration | Welcome | Light Refreshments",
+    "location": "Cottonwood 1",
+    "startTime": "2026-03-19T09:00:00",
+    "endTime": "2026-03-19T09:45:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Keynote: “The State of Public History—Past, Present, Future”",
+    "location": "Cottonwood Suite",
+    "startTime": "2026-03-19T10:00:00",
+    "endTime": "2026-03-19T11:00:00",
+    "shortDescription": "Introduction: Dr. Patrick Ettinger (History, California State University, Sacramento)\nKeynote Speaker: Dr. Carter Hudgins (Clemson University)",
+    "longDescription": null,
+    "session": "Plenary",
+    "isSpecial": false
+  },
+  {
+    "title": "Panel",
+    "location": "Maidu Room",
+    "startTime": "2026-03-19T11:00:00",
+    "endTime": "2026-03-19T12:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 2 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Panel",
+    "location": "Miwok Room",
+    "startTime": "2026-03-19T11:00:00",
+    "endTime": "2026-03-19T12:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 2 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Panel",
+    "location": "Auburn Room",
+    "startTime": "2026-03-19T11:00:00",
+    "endTime": "2026-03-19T12:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 2 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Lunch",
+    "location": "Orchard Suite",
+    "startTime": "2026-03-19T12:00:00",
+    "endTime": "2026-03-19T13:00:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Campus Tour",
+    "location": "Campus",
+    "startTime": "2026-03-19T13:00:00",
+    "endTime": "2026-03-19T14:00:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Pop-Up Histories of the United States in the Age Revolution",
+    "location": "Library Quad",
+    "startTime": "2026-03-19T14:00:00",
+    "endTime": "2026-03-19T16:00:00",
+    "shortDescription": "Moderator: Dr. Mona Seigel (History, California State University, Sacramento)",
+    "longDescription": null,
+    "session": "Plenary",
+    "isSpecial": true
+  },
+  {
+    "title": "Panel",
+    "location": "Maidu Room",
+    "startTime": "2026-03-19T16:00:00",
+    "endTime": "2026-03-19T17:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 3 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Panel",
+    "location": "Cottonwood 2 & 3",
+    "startTime": "2026-03-19T16:00:00",
+    "endTime": "2026-03-19T17:00:00",
+    "shortDescription": "",
+    "longDescription": null,
+    "session": "Session 3 - Concurrent Panels",
+    "isSpecial": true
+  },
+  {
+    "title": "Panel",
+    "location": "Miwok Room",
+    "startTime": "2026-03-19T16:00:00",
+    "endTime": "2026-03-19T17:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 3 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Dinner",
+    "location": "Orchard Suite",
+    "startTime": "2026-03-19T17:00:00",
+    "endTime": "2026-03-19T18:30:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Mixer (Optional)",
+    "location": "Lefty’s Eatery & Tappom",
+    "startTime": "2026-03-19T19:00:00",
+    "endTime": "2026-03-19T20:00:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Registration | Welcome | Light Refreshments",
+    "location": "Pacific 1",
+    "startTime": "2026-03-20T09:00:00",
+    "endTime": "2026-03-20T09:45:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Panel – Before & After – Freedom Seekers in the American Revolutionary Era and Beyond",
+    "location": "Pacific Room 2 & 3",
+    "startTime": "2026-03-20T10:00:00",
+    "endTime": "2026-03-20T11:00:00",
+    "shortDescription": "Chair: Dr. Troy Crowder (History, California State University, Sacramento)",
+    "longDescription": "Dr. Antonio T. Bly, (History, California State University, Sacramento)\nDr. Billy G. Smith (Montana State University)\nMr. Isaac Lee (University of Madison-Wisconsin)",
+    "session": "Plenary",
+    "isSpecial": false
+  },
+  {
+    "title": "Panel – Anansi Stories: Freedom Seekers Research Writing Workshop",
+    "location": "Pacific Room 2 & 3 (Cont'd.)",
+    "startTime": "2026-03-20T11:00:00",
+    "endTime": "2026-03-20T12:00:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": "Session 4 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Panel",
+    "location": "Miwok Room",
+    "startTime": "2026-03-20T11:00:00",
+    "endTime": "2026-03-20T12:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 4 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Panel",
+    "location": "Maidu Room",
+    "startTime": "2026-03-20T11:00:00",
+    "endTime": "2026-03-20T12:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 4 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Panel",
+    "location": "Folsom Room",
+    "startTime": "2026-03-20T11:00:00",
+    "endTime": "2026-03-20T12:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Session 4 - Concurrent Panels",
+    "isSpecial": false
+  },
+  {
+    "title": "Lunch",
+    "location": "Green and Gold Room",
+    "startTime": "2026-03-20T12:00:00",
+    "endTime": "2026-03-20T13:00:00",
+    "shortDescription": null,
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+  {
+    "title": "Roundtable Discussion | America 250 – Looking Backward, Moving Forward",
+    "location": "Hinde Auditorium",
+    "startTime": "2026-03-20T13:30:00",
+    "endTime": "2026-03-20T15:00:00",
+    "shortDescription": "",
+    "longDescription": "",
+    "session": "Plenary",
+    "isSpecial": true
+  },
+  {
+    "title": "Concluding Statements - Closing Remarks.",
+    "location": "Hinde Auditorium",
+    "startTime": "2026-03-20T15:00:00",
+    "endTime": "2026-03-20T15:30:00",
+    "shortDescription": "",
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  }
+]
