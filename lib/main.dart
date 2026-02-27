@@ -154,7 +154,7 @@ class HomeView extends StatelessWidget {
   Future<void> _launchRegistration() async {
     // TODO: Replace this with the actual registration URL
     final Uri url = Uri.parse(
-      'https://www.csus.edu/college/arts-letters/history/shattuck-endowment/programs.html',
+      'https://docs.google.com/forms/d/e/1FAIpQLSevZg1n-MUGCOrQ6-uuGYAdaffpflyuY1H17kJZFxMvzIT5Zg/viewform',
     );
 
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
@@ -528,7 +528,16 @@ class SharedHeader extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              "The Shattuck American History Symposium",
+              "The Shattuck Colonial American History Symposium",
+              style: GoogleFonts.notoSerif(
+                fontSize: 12,
+                color: Colors.white,
+                height: 1.0,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              "March 18-20, 2026",
               style: GoogleFonts.notoSerif(
                 fontSize: 12,
                 color: Colors.white,

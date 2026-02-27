@@ -10,7 +10,7 @@
     "isSpecial": false
   },
   {
-    "title": "Revolutionary Dramaturgy | A Theatrical Interpretations ",
+    "title": "Revolutionary Dramaturgy | Theatrical Interpretations ",
     "location": "Pacific Room 2&3 (3rd Floor)",
     "startTime": "2026-03-18T10:00:00 ",
     "endTime": "2026-03-18T11:00:00 ",
@@ -24,7 +24,7 @@
     "location": "Folsom Room (3rd Floor)",
     "startTime": "2026-03-18T11:00:00 ",
     "endTime": "2026-03-18T12:00:00 ",
-    "shortDescription": "Chair. Mrs. Donnamaria Bly (Old Dominion University) ",
+    "shortDescription": "Chair. Mrs. Donnamaria Bly (History, Old Dominion University) ",
     "longDescription": null,
     "session": null,
     "isSpecial": true
@@ -40,17 +40,28 @@
     "isSpecial": false
   },
   {
-    "title": "Reception ",
+    "title": "Reception",
     "location": "Library Breezeway ",
     "startTime": "2026-03-18T13:00:00 ",
-    "endTime": "2026-03-18T14:30:00 ",
-    "shortDescription": "Opening Remarks. Dr. Gladys Frances (Dean of Arts and Letters, California State University, Sacramento) ",
+    "endTime": "2026-03-18T14:15:00 ",
+    "shortDescription": null,
     "longDescription": null,
     "session": null,
     "isSpecial": false
   },
   {
-    "title": "The Public Reading of the Declaration of Independence. ",
+    "title": "Opening Remarks",
+    "location": "Library Breezeway ",
+    "startTime": "2026-03-18T14:15:00 ",
+    "endTime": "2026-03-18T14:30:00 ",
+    "shortDescription": "Dr. Gladys Frances (Dean of Arts and Letters, California State University, Sacramento) ",
+    "longDescription": null,
+    "session": null,
+    "isSpecial": false
+  },
+
+  {
+    "title": "Public Reading of the Declaration of Independence. ",
     "location": "Library Quad ",
     "startTime": "2026-03-18T14:30:00 ",
     "endTime": "2026-03-18T15:00:00 ",
@@ -65,7 +76,7 @@
     "startTime": "2026-03-18T15:00:00 ",
     "endTime": "2026-03-18T16:00:00 ",
     "shortDescription": "Chair. Dr. Ty Smith (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Anthony Bratzier (University of Chicago) “The Emergence of Colonial Unity: The Stamp Act Congress and the Formation of American Political capacity” \n\nMr. Jerry Kennedy (History, California State University, Sacramento) “The Forgotten Act: The Prohibitory Act & the Common Origins of the American Revolution” ",
+    "longDescription": "Dr. Anthony Bratzier (University of Chicago)\n\"The Emergence of Colonial Unity: The Stamp Act Congress and the Formation of American Political capacity\" \n\nMr. Jerry Kennedy (History, California State University, Sacramento)\n\"The Forgotten Act: The Prohibitory Act & the Common Origins of the American Revolution\"",
     "isSpecial": false,
     "session": "Session 1 - Concurrent Sessions "
   },
@@ -85,7 +96,7 @@
     "startTime": "2026-03-18T15:00:00 ",
     "endTime": "2026-03-18T16:00:00 ",
     "shortDescription": "Chair. Dr. Stephanie Seery-Murphy (California State University, Sacramento) ",
-    "longDescription": "Mr. Amer Hamid (California State University, Fullerton) Decoding the Declaration: Eighteenth-Century English Poetics and the Poetics of the US Declaration of Independence \n\nDr. Amy Speckart (University of Virginia) Unfinished Genealogies: Freedom Seekers in the Household of Thomas Stone, Signer of the Declaration of Independence for Maryland ",
+    "longDescription": "Dr. Amy Speckart (University of Virginia)\n\"Unfinished Genealogies: Freedom Seekers in the Household of Thomas Stone, Signer of the Declaration of Independence for Maryland\"\n\nMr. Amer Hamid (California State University, Fullerton)\n\"Decoding the Declaration: Eighteenth-Century English Poetics and the Poetics of the US Declaration of Independence\"",
     "session": "Session 1 - Concurrent Sessions ",
     "isSpecial": false
   },
@@ -110,12 +121,12 @@
     "isSpecial": false
   },
   {
-    "title": "Keynote Speaker. Dr. Carter Hudgins (Clemson University) | “The State of Public History—Past, Present, Future” ",
+    "title": "Keynote Speaker. Dr. Carter Hudgins (Clemson University)",
     "location": "Cottonwood Room 2&3 (2nd Floor)",
     "startTime": "2026-03-19T10:00:00 ",
     "endTime": "2026-03-19T11:00:00 ",
     "shortDescription": "Introduction. Dr. Patrick Ettinger (History, California State University, Sacramento) ",
-    "longDescription": null,
+    "longDescription": "Dr. Carter Hudgins (Clemson University)\n\"The State of Public History—Past,Present,Future\"",
     "session": "Session 2 - Plenary ",
     "isSpecial": false
   },
@@ -124,20 +135,20 @@
     "location": "Maidu Room (3rd Floor)",
     "startTime": "2026-03-19T11:00:00 ",
     "endTime": "2026-03-19T12:00:00 ",
-    "shortDescription": "Chair, Dr. Nikolaos Lazaridis (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Terri Castaneda (Anthropology, California State University, Sacramento) “Expressions of American Belonging in the Work of Boston Antiquarian Abel Bowen” \n\nDr. Michael Dorn (Independent Scholar) “Shades of Autonomy in Daniel Boone” ",
+    "shortDescription": "Chair. Dr. Nikolaos Lazaridis (History, California State University, Sacramento) ",
+    "longDescription": "Dr. Terri Castaneda (Anthropology, California State University, Sacramento)\n\"Expressions of American Belonging in the Work of Boston Antiquarian Abel Bowen\" \n\nDr. Michael Dorn (Independent Scholar)\n\"Shades of Autonomy in Daniel Boone\"",
     "session": "Session 3 - Concurrent Sessions ",
     "isSpecial": false
   },
   {
-    "title": "Panel – History, Memory, and the Politics of Identity ",
+    "title": "History, Memory, and the Politics of Identity ",
     "location": "Miwok Room (3rd Floor)",
     "startTime": "2026-03-19T11:00:00 ",
     "endTime": "2026-03-19T12:00:00 ",
-    "shortDescription": "Chair, Dr. Tom Clark (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Michael Ward (Ventura College) “American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity” \n\nDr. Connor Naylor (Affiliation) The 1780 Defeat at Charleston and Historical Recollection: The Early National Period, 1785-1815 ",
+    "shortDescription": "Chair. Dr. Chris Terri Castaneda (History, California State University, Sacramento)",
+    "longDescription": "",
     "session": "Session 3 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": true
   },
   {
     "title": "Visions of Freedom: Artistic Reflections of the American Revolution ",
@@ -160,8 +171,8 @@
     "isSpecial": false
   },
   {
-    "title": "Campus Tour ",
-    "location": "Campus",
+    "title": "Campus Tour",
+    "location": "Union Entryway",
     "startTime": "2026-03-19T13:00:00 ",
     "endTime": "2026-03-19T14:00:00 ",
     "shortDescription": null,
@@ -185,7 +196,7 @@
     "startTime": "2026-03-19T16:00:00 ",
     "endTime": "2026-03-19T17:00:00 ",
     "shortDescription": "Chair. Dr. Serpil Atamaz-Topcu (History, California State University, California) ",
-    "longDescription": "Dr. Elizabeth Hancox (Luiss University) “She had always the management thereof”: Commercial and Legal Agency of Dutch Women in New Netherland and Colonial New York. \n\nAlexander Von Sternberg (California State University, Long Beach) A Storm of Decay: Institutional Erosion After Salem. ",
+    "longDescription": "Dr. Elizabeth Hancox (Luiss University)\n\"She had always the management thereof”: Commercial and Legal Agency of Dutch Women in New Netherland and Colonial New York\"\n\nAlexander Von Sternberg (California State University, Long Beach)\n\"A Storm of Decay: Institutional Erosion After Salem\"",
     "session": "Session 5 - Concurrent Sessions ",
     "isSpecial": false
   },
@@ -194,18 +205,18 @@
     "location": "Miwok Room (3rd Floor)",
     "startTime": "2026-03-19T16:00:00 ",
     "endTime": "2026-03-19T17:00:00 ",
-    "shortDescription": "Chair, Dr. Liam Murphy (Chair, Anthropology Department, California State University, Sacramento) ",
-    "longDescription": "Eric Schubert (Millersville University) Lancaster County Mennonites in the American Revolution \n\nDr. Margo Lambert (University of Cincinnati Blue Ash College) Francis Daniel Pastorius, German Immigration, and Abolition. ",
+    "shortDescription": "Chair. Dr. Liam Murphy (Anthropology Department Chair, California State University, Sacramento) ",
+    "longDescription": "Dr. Margo Lambert (University of Cincinnati Blue Ash College)\n\"Francis Daniel Pastorius, German Immigration, and Abolition\" \n\nEric Schubert (Millersville University)\n\"Lancaster County Mennonites in the American Revolution\"",
     "session": "Session 5 - Concurrent Sessions ",
     "isSpecial": false
   },
   {
-    "title": "Panel – We the People | Virtual Histories ",
+    "title": "Panel – We the People",
     "location": "Summit Room (3rd Floor)",
     "startTime": "2026-03-19T16:00:00 ",
     "endTime": "2026-03-19T17:00:00 ",
-    "shortDescription": "Chair, Dr. Chris Terri Castaneda (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Libby Cook (Independent Scholar) “Reuben George: A Mechanic in the Early Republic” \n\nDr. Stephanie Hunter McMahon (Indiana University Maurer School of Law) The Boston Tea Party and the Whiskey Rebellion Were Not About Taxes ",
+    "shortDescription": "Chair. Dr. Tom Clark (History, California State University, Sacramento)",
+    "longDescription": "Dr. Libby Cook (Independent Scholar)\n\"Reuben George: A Mechanic in the Early Republic\" \n\nDr. Stephanie Hunter McMahon (Indiana University Maurer School of Law)\n\"The Boston Tea Party and the Whiskey Rebellion Were Not About Taxes\"\n\nDr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"",
     "session": "Session 5 - Concurrent Sessions ",
     "isSpecial": false
   },
@@ -245,7 +256,7 @@
     "startTime": "2026-03-20T10:00:00 ",
     "endTime": "2026-03-20T11:00:00 ",
     "shortDescription": "Chair. Dr. Troy Crowder (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Antonio T. Bly, (History, California State University, Sacramento) \n\nDr. Billy G. Smith (Montana State University) \n\nMr. Isaac Lee (University of Madison-Wisconsin) ",
+    "longDescription": "Dr. Antonio T. Bly, (History, California State University, Sacramento) \nDr. Billy G. Smith (Montana State University) \nMr. Isaac Lee (University of Madison-Wisconsin) ",
     "session": "Plenary ",
     "isSpecial": false
   },
@@ -264,8 +275,8 @@
     "location": "Miwok Room (3rd Floor)",
     "startTime": "2026-03-20T11:00:00 ",
     "endTime": "2026-03-20T12:00:00 ",
-    "shortDescription": "Chair, Dr. Rebekkah Mulholland (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Christian Martin Brooks (California Polytechnic State University, San Luis Obispo) “Afro-Californios in El Pueblo de Nuestra Señora la Reina de los Ángeles” \n\nDr. Amanda McGee (University of Arkansas) \"From Subjects to Citizens?: Mapping the Transformative Landscape of Residency in Pennsylvania in the Early American Republic.\" ",
+    "shortDescription": "Chair. Dr. Rebekkah Mulholland (History, California State University, Sacramento) ",
+    "longDescription": "Dr. Christian Martin Brooks (California Polytechnic State University, San Luis Obispo)\n\"Afro-Californios in El Pueblo de Nuestra Señora la Reina de los Ángeles\" \n\nDr. Amanda McGee (University of Arkansas)\n\"From Subjects to Citizens?: Mapping the Transformative Landscape of Residency in Pennsylvania in the Early American Republic\" ",
     "session": "Session 5 - Concurrent Sessions ",
     "isSpecial": false
   },
@@ -275,7 +286,7 @@
     "startTime": "2026-03-20T11:00:00 ",
     "endTime": "2026-03-20T12:00:00 ",
     "shortDescription": "Chair. Dr. Candace Gregory (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Deborah Fisher (Pennsylvania State University) A Colonial American Ceres: Metamorphosis and Becoming in John Singleton Copley’s Mrs. Elizabeth Goldthwait. \n\nDr. Jason Daniels (California State University, East Bay) Friends among Strangers: Quaker and Catholic Encounters in Spanish Florida and French Saint-Domingue. ",
+    "longDescription": "Dr. Deborah Fisher (Pennsylvania State University)\n\"A Colonial American Ceres: Metamorphosis and Becoming in John Singleton Copley’s Mrs. Elizabeth Goldthwait\" \n\nDr. Jason Daniels (California State University, East Bay)\n\"Friends among Strangers: Quaker and Catholic Encounters in Spanish Florida and French Saint-Domingue\"",
     "session": "Session 5 - Concurrent Sessions ",
     "isSpecial": false
   },
@@ -284,7 +295,7 @@
     "location": "Auburn Room (3rd Floor)",
     "startTime": "2026-03-20T11:00:00 ",
     "endTime": "2026-03-20T12:00:00 ",
-    "shortDescription": "Chair – Dr. Aaron Jackson (Department of History, California State University, Sacramento) ",
+    "shortDescription": "Chair. Dr. Aaron Jackson (History, California State University, Sacramento) ",
     "longDescription": null,
     "session": "Session 5 - Concurrent Sessions ",
     "isSpecial": true
@@ -294,8 +305,8 @@
     "location": "Folsom Room (3rd Floor)",
     "startTime": "2026-03-20T11:00:00 ",
     "endTime": "2026-03-20T12:00:00 ",
-    "shortDescription": "Chair: Dr. Brian Baker (Chair, Ethnic Studies, California State University, Sacramento) ",
-    "longDescription": "Dr. Daniel Russell (California State University, Northridge) A Legacy of Love: How David Zeisberger’s Intellectual Influences and Personal Challenges Shaped His Interactions With Indigenous People in 18th Century North America. \n\nRebecca Simpson Menzies (TBA). An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony ",
+    "shortDescription": "Chair. Dr. Brian Baker (Ethnic Studies Chair, California State University, Sacramento) ",
+    "longDescription": "Dr. Daniel Russell (California State University, Northridge)\n\"A Legacy of Love: How David Zeisberger’s Intellectual Influences and Personal Challenges Shaped His Interactions With Indigenous People in 18th Century North America\" \n\nRebecca Simpson Menzies (TBA)\n\"An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony\"",
     "session": "Session 5 - Concurrent Sessions ",
     "isSpecial": false
   },
@@ -314,8 +325,8 @@
     "location": "Hinde Auditorium (1st Floor)",
     "startTime": "2026-03-20T13:30:00 ",
     "endTime": "2026-03-20T15:00:00 ",
-    "shortDescription": "Chair. Sherri Meyer (Department of English, California State University, Sacramento) ",
-    "longDescription": "Dr. Jim German (Department of History, California State University, Sacramento) \n\nDr. Mark Brown (Department of Political Science, California State University, Sacramento) \n\nDr. Maria Quintana (Department of History, California State University, Sacramento) ",
+    "shortDescription": "Chair. Sherri Meyer (English, California State University, Sacramento) ",
+    "longDescription": "Dr. Jim German (History, California State University, Sacramento) \nDr. Mark Brown (Political Science, California State University, Sacramento) \nDr. Maria Quintana (History, California State University, Sacramento) ",
     "session": "Plenary ",
     "isSpecial": true
   },
