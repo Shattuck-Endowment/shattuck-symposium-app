@@ -8,7 +8,7 @@
 PRODUCT_NAME = shattuck_app
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.shattuckApp
+PRODUCT_BUNDLE_IDENTIFIER = com.shattuck.shattuck-symposium
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 Shattuck Endowment All rights reserved.

@@ -1,4 +1,4 @@
-package com.example.shattuck_app
+package shattuck_endowment.shattuck_app
 
 import io.flutter.embedding.android.FlutterActivity
 

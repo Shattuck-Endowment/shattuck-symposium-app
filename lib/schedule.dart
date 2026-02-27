@@ -12,8 +12,8 @@ class SymposiumEvent {
   final DateTime endTime;
   final String? shortDescription;
   final String? longDescription;
+  final String? session;
   final bool isSpecial;
-  final String? session; // New nullable property
 
   SymposiumEvent({
     required this.title,
@@ -22,20 +22,21 @@ class SymposiumEvent {
     required this.endTime,
     this.shortDescription,
     this.longDescription,
-    this.isSpecial = false,
     this.session,
+    required this.isSpecial,
   });
 
   factory SymposiumEvent.fromJson(Map<String, dynamic> json) {
     return SymposiumEvent(
-      title: json['title'] as String,
-      location: json['location'] as String,
-      startTime: DateTime.parse(json['startTime'] as String),
-      endTime: DateTime.parse(json['endTime'] as String),
-      shortDescription: json['shortDescription'] as String?,
-      longDescription: json['longDescription'] as String?,
+      title: json['title']?.toString().trim() ?? 'Untitled Event',
+      location: json['location']?.toString().trim() ?? 'Location TBD',
+      // Safely trim whitespace before parsing the ISO 8601 datetimes
+      startTime: DateTime.parse(json['startTime'].toString().trim()),
+      endTime: DateTime.parse(json['endTime'].toString().trim()),
+      shortDescription: json['shortDescription']?.toString().trim(),
+      longDescription: json['longDescription']?.toString().trim(),
+      session: json['session']?.toString().trim(),
       isSpecial: json['isSpecial'] as bool? ?? false,
-      session: json['session'] as String?, // Safe parsing of the optional key
     );
   }
 
@@ -89,9 +90,7 @@ class _SchedulePageState extends State<SchedulePage> {
 
   Future<void> _loadEvents() async {
     try {
-      final String response = await rootBundle.loadString(
-        'assets/events_obfuscated.json',
-      );
+      final String response = await rootBundle.loadString('assets/events.json');
       final List<dynamic> data = jsonDecode(response);
 
       final List<SymposiumEvent> loadedEvents = data

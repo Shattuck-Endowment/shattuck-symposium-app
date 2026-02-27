@@ -1,4 +1,3 @@
-import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -111,7 +110,9 @@ class _HomePageState extends State<HomePage> {
     required int index,
   }) {
     final bool isSelected = _selectedIndex == index;
-    final IconData icon = Platform.isIOS ? iconIOS : iconAndroid;
+    final IconData icon = Theme.of(context).platform == TargetPlatform.iOS
+        ? iconIOS
+        : iconAndroid;
 
     return GestureDetector(
       onTap: () => _onItemTapped(index),
@@ -240,7 +241,8 @@ class HomeView extends StatelessWidget {
     required IconData iconIOS, // Now required
     required IconData iconAndroid, // Now required
   }) {
-    final bool isIOS = Platform.isIOS;
+    final bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
+    ;
 
     return GestureDetector(
       onTap: onTap,
@@ -465,7 +467,7 @@ class InfoView extends StatelessWidget {
                         ),
                         const SizedBox(width: 12),
                         Icon(
-                          Platform.isIOS
+                          Theme.of(context).platform == TargetPlatform.iOS
                               ? CupertinoIcons.doc_text
                               : Icons.description,
                           color: Colors.blueAccent,
@@ -473,7 +475,7 @@ class InfoView extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         Icon(
-                          Platform.isIOS
+                          Theme.of(context).platform == TargetPlatform.iOS
                               ? CupertinoIcons.chevron_right
                               : Icons.chevron_right,
                           color: Colors.grey.shade400,
