@@ -5,6 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+class EventAbstract {
+  final String title;
+  final String content;
+
+  EventAbstract({required this.title, required this.content});
+
+  factory EventAbstract.fromJson(Map<String, dynamic> json) {
+    return EventAbstract(
+      // Mapping explicitly to the capitalization you specified
+      title: json['title']?.toString().trim() ?? 'Untitled',
+      content: json['abstract']?.toString().trim() ?? 'No content provided.',
+    );
+  }
+}
+
 class SymposiumEvent {
   final String title;
   final String location;
@@ -13,7 +28,8 @@ class SymposiumEvent {
   final String? shortDescription;
   final String? longDescription;
   final String? session;
-  final bool isSpecial;
+  final String? isSpecial;
+  final List<EventAbstract>? abstracts;
 
   SymposiumEvent({
     required this.title,
@@ -23,20 +39,28 @@ class SymposiumEvent {
     this.shortDescription,
     this.longDescription,
     this.session,
-    required this.isSpecial,
+    this.isSpecial,
+    this.abstracts,
   });
 
   factory SymposiumEvent.fromJson(Map<String, dynamic> json) {
+    List<EventAbstract>? parsedAbstracts;
+    if (json['abstracts'] != null && json['abstracts'] is List) {
+      parsedAbstracts = (json['abstracts'] as List)
+          .map((e) => EventAbstract.fromJson(e as Map<String, dynamic>))
+          .toList();
+    }
+
     return SymposiumEvent(
       title: json['title']?.toString().trim() ?? 'Untitled Event',
       location: json['location']?.toString().trim() ?? 'Location TBD',
-      // Safely trim whitespace before parsing the ISO 8601 datetimes
       startTime: DateTime.parse(json['startTime'].toString().trim()),
       endTime: DateTime.parse(json['endTime'].toString().trim()),
       shortDescription: json['shortDescription']?.toString().trim(),
       longDescription: json['longDescription']?.toString().trim(),
       session: json['session']?.toString().trim(),
-      isSpecial: json['isSpecial'] as bool? ?? false,
+      isSpecial: json['isSpecial']?.toString().trim(),
+      abstracts: parsedAbstracts,
     );
   }
 
@@ -269,7 +293,6 @@ class _SchedulePageState extends State<SchedulePage> {
                           color: Color(0xFFC4B581),
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          // letterSpacing: ,
                           height: 1.0,
                         ),
                       ),
@@ -340,10 +363,25 @@ class EventCard extends StatefulWidget {
 class _EventCardState extends State<EventCard> {
   bool _isExpanded = false;
 
+  void _showAbstractsDialog(BuildContext context) {
+    if (widget.event.abstracts == null || widget.event.abstracts!.isEmpty)
+      return;
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AbstractsDialog(abstracts: widget.event.abstracts!);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final bool isLive = widget.event.isLive;
-    final bool isSpecial = widget.event.isSpecial;
+    final String? specialType = widget.event.isSpecial;
+    final bool hasSpecialBadge = specialType == '250' || specialType == 'women';
+    final bool hasAbstracts =
+        widget.event.abstracts != null && widget.event.abstracts!.isNotEmpty;
 
     return GestureDetector(
       onTap: () {
@@ -355,15 +393,28 @@ class _EventCardState extends State<EventCard> {
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),
-        // Tricolor Gradient Border for Special Sessions (if not live)
-        decoration: (isSpecial && !isLive)
+        decoration: (hasSpecialBadge && !isLive)
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(22),
-                gradient: const LinearGradient(
-                  colors: [Colors.redAccent, Colors.white, Colors.blueAccent],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                gradient: specialType == '250'
+                    ? const LinearGradient(
+                        colors: [
+                          Colors.redAccent,
+                          Colors.white,
+                          Colors.blueAccent,
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      )
+                    : const LinearGradient(
+                        colors: [
+                          Color(0xFF6A1B9A),
+                          Colors.white,
+                          Color(0xFFFFC107),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.05),
@@ -373,10 +424,9 @@ class _EventCardState extends State<EventCard> {
                 ],
               )
             : null,
-        padding: (isSpecial && !isLive)
+        padding: (hasSpecialBadge && !isLive)
             ? const EdgeInsets.all(3.0)
             : EdgeInsets.zero,
-
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           padding: const EdgeInsets.all(20),
@@ -386,7 +436,7 @@ class _EventCardState extends State<EventCard> {
             border: isLive
                 ? Border.all(color: const Color(0xFFC4B581), width: 2)
                 : null,
-            boxShadow: (!isSpecial && !isLive)
+            boxShadow: (!hasSpecialBadge && !isLive)
                 ? [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.03),
@@ -406,15 +456,12 @@ class _EventCardState extends State<EventCard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Conditionally inject the Session overline if it exists
                         if (widget.event.session != null) ...[
                           Text(
                             widget.event.session!.toUpperCase(),
                             style: const TextStyle(
                               fontSize: 12,
-                              color: Color(
-                                0xFF043927,
-                              ), // Hornet Green establishes it as a category
+                              color: Color(0xFF043927),
                               fontWeight: FontWeight.bold,
                               letterSpacing: 0.8,
                             ),
@@ -450,18 +497,30 @@ class _EventCardState extends State<EventCard> {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  // Right-aligned column to safely stack active badges
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      if (isSpecial) _buildAmerica250Badge(),
-                      if (isSpecial && isLive) const SizedBox(height: 8),
+                      if (specialType == '250') _buildAmerica250Badge(),
+                      if (specialType == 'women') _buildWomensHistoryBadge(),
+                      if (hasSpecialBadge && isLive) const SizedBox(height: 8),
                       if (isLive) _buildLiveBadge(),
+                      if (hasAbstracts) ...[
+                        const SizedBox(height: 8),
+                        IconButton(
+                          icon: const Icon(
+                            CupertinoIcons.info_circle,
+                            color: Color(0xFF043927),
+                          ),
+                          onPressed: () => _showAbstractsDialog(context),
+                          tooltip: 'View Abstracts',
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                        ),
+                      ],
                     ],
                   ),
                 ],
               ),
-
               if (widget.event.shortDescription != null) ...[
                 const SizedBox(height: 16),
                 Text(
@@ -473,7 +532,6 @@ class _EventCardState extends State<EventCard> {
                   ),
                 ),
               ],
-
               AnimatedSize(
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
@@ -494,7 +552,6 @@ class _EventCardState extends State<EventCard> {
                       : const SizedBox.shrink(),
                 ),
               ),
-
               if (widget.event.longDescription != null) ...[
                 const SizedBox(height: 12),
                 Center(
@@ -514,17 +571,13 @@ class _EventCardState extends State<EventCard> {
     );
   }
 
-  // Extracted badge logic to keep the build method readable
   Widget _buildAmerica250Badge() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFFF0F4F8), // Soft contrasting background
+        color: const Color(0xFFF0F4F8),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: const Color(0xFF0A3161),
-          width: 1,
-        ), // Strict Navy Blue border
+        border: Border.all(color: const Color(0xFF0A3161), width: 1),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -535,6 +588,35 @@ class _EventCardState extends State<EventCard> {
             "America 250",
             style: TextStyle(
               color: Color(0xFF0A3161),
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWomensHistoryBadge() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF3E5F5), // Soft purple background
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: const Color(0xFF6A1B9A), // Deep purple border
+          width: 1,
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Icon(Icons.female, size: 14, color: Color(0xFF6A1B9A)),
+          SizedBox(width: 4),
+          Text(
+            "Women's History",
+            style: TextStyle(
+              color: Color(0xFF6A1B9A),
               fontWeight: FontWeight.bold,
               fontSize: 12,
             ),
@@ -565,6 +647,162 @@ class _EventCardState extends State<EventCard> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class AbstractsDialog extends StatefulWidget {
+  final List<EventAbstract> abstracts;
+
+  const AbstractsDialog({super.key, required this.abstracts});
+
+  @override
+  State<AbstractsDialog> createState() => _AbstractsDialogState();
+}
+
+class _AbstractsDialogState extends State<AbstractsDialog> {
+  late PageController _pageController;
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _nextPage() {
+    if (_currentIndex < widget.abstracts.length - 1) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _previousPage() {
+    if (_currentIndex > 0) {
+      _pageController.previousPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      // Rigorously enforce a white background, overriding global theme inheritance
+      backgroundColor: Colors.white,
+      // Disable Material 3's dynamic elevation color blending
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Container(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height * 0.7,
+        ),
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Session Abstracts",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF043927),
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(CupertinoIcons.clear_circled),
+                  onPressed: () => Navigator.of(context).pop(),
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                ),
+              ],
+            ),
+            const Divider(height: 24),
+            Expanded(
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: widget.abstracts.length,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+                itemBuilder: (context, index) {
+                  final item = widget.abstracts[index];
+                  return SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item.title,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          item.content,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.black87,
+                            height: 1.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            if (widget.abstracts.length > 1) ...[
+              const Divider(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: const Icon(CupertinoIcons.left_chevron),
+                    onPressed: _currentIndex > 0 ? _previousPage : null,
+                    color: _currentIndex > 0
+                        ? const Color(0xFF043927)
+                        : Colors.grey.shade300,
+                  ),
+                  Text(
+                    "${_currentIndex + 1} of ${widget.abstracts.length}",
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(CupertinoIcons.right_chevron),
+                    onPressed: _currentIndex < widget.abstracts.length - 1
+                        ? _nextPage
+                        : null,
+                    color: _currentIndex < widget.abstracts.length - 1
+                        ? const Color(0xFF043927)
+                        : Colors.grey.shade300,
+                  ),
+                ],
+              ),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }

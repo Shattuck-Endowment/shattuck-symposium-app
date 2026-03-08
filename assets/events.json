@@ -7,7 +7,7 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "I Declare! You Declare? We Declare, 1776-2026",
@@ -17,7 +17,7 @@
     "shortDescription": "Directed by Dr. Melinda Wilson Ramsey (Theater and Dance, California State University, Sacramento) ",
     "longDescription": "Student performance of a series of speeches, poems and letters throughout American history that celebrate and question the Declaration of Independence.",
     "session": null,
-    "isSpecial": true
+    "isSpecial": "women"
   },
   {
     "title": "“Another Tribe” – Revolutionary Women in Revolutionary Times ",
@@ -27,7 +27,7 @@
     "shortDescription": "Chair. Mrs. Donnamaria Bly (History, Old Dominion University) ",
     "longDescription": "A pictorial examination of women and their role in the Age of Revolution",
     "session": null,
-    "isSpecial": false
+    "isSpecial": "women"
   },
   {
     "title": "Peter H. Shattuck Rare Books Collection Exhibit",
@@ -35,9 +35,9 @@
     "startTime": "2026-03-18T12:00:00 ",
     "endTime": "2026-03-18T13:00:00 ",
     "shortDescription": "Curator. Ms. Sarah Allison, Head of Donald & Beverly Gerth Special Collections & University Archives.",
-    "longDescription": "A display of the Peter H. Shattuck Library.",
+    "longDescription": "A public display of the Peter H. Shattuck Library.",
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Reception",
@@ -47,7 +47,7 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Opening Remarks",
@@ -57,7 +57,7 @@
     "shortDescription": "Dr. Gladys Francis (Dean of Arts and Letters, California State University, Sacramento) ",
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Public Reading of the Declaration of Independence. ",
@@ -67,7 +67,7 @@
     "shortDescription": null,
     "longDescription": "A group of Sac State students publishing Mr. Jefferson’s hallowed parchment.",
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Panel – Taxation without Representation ",
@@ -75,9 +75,12 @@
     "startTime": "2026-03-18T15:00:00 ",
     "endTime": "2026-03-18T16:00:00 ",
     "shortDescription": "Chair. Dr. Ty Smith (History, California State University, Sacramento) ",
-    "longDescription": "Mr. Anthony Bratzler \n\"The Emergence of Colonial Unity: The Stamp Act Congress and the Formation of American Political capacity\" \n\nMr. Jerry Kennedy (History, California State University, Sacramento)\n\"The Forgotten Act: How the Prohibitory Act of 1775 Tipped the American Colonies toward Independence\"",
-    "isSpecial": false,
-    "session": "Session 1 - Concurrent Sessions "
+    "longDescription": "Mr. Anthony Bratzler (Independent Historian) \n\"The Emergence of Colonial Unity: The Stamp Act Congress and the Formation of American Political capacity\" \n\nMr. Jerry Kennedy (History, California State University, Sacramento)\n\"The Forgotten Act: How the Prohibitory Act of 1775 Tipped the American Colonies toward Independence\"",
+    "isSpecial": null,
+    "session": "Session 1 - Concurrent Sessions ",
+    "abstracts": [
+      {"title": "Mr. Anthony Bratzler (Independent Historian) \n\"The Emergence of Colonial Unity: The Stamp Act Congress and the Formation of American Political capacity\"", "abstract": "This paper argues that the Stamp Act Congress of 1765 functioned as a structural turning point in late-colonial history by connecting previously fragmented colonial networks into a self-reinforcing -autocatalytic- intercolonial network that enabled sustained collective action. "}
+    ]
   },
   {
     "title": "Panel – Faces in the Crowd: Black Liberation Before & After the Revolution ",
@@ -87,7 +90,7 @@
     "shortDescription": "Chair. Dr. Aaron Cohen (History, California State University, California) ",
     "longDescription": "Mrs. Nicole Brown, ABA (The Thomas Jefferson Foundation) \nMrs. Tamia Haygood, ABA (William and Mary) \nMr. John Balz, ABA (University of Wisconsin-Madison)\n\nA podcast and interview with three winners of the Anansi Prize.",
     "session": "Session 1 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": "women"
   },
   {
     "title": "Panel – Text, Context, Subtext ",
@@ -97,7 +100,11 @@
     "shortDescription": "Chair. Dr. Stephanie Seery-Murphy (History, California State University, Sacramento) ",
     "longDescription": "Dr. Amy Speckart (Rare Book School, University of Virginia)\n\"Unfinished Genealogies: Freedom Seekers in the Household of Thomas Stone, Signer of the Declaration of Independence for Maryland\"\n\nMr. Amer Hamid (California State University, Fullerton)\n\"Decoding the Declaration: Eighteenth-Century English Poetics and the Poetics of the US Declaration of Independence\"",
     "session": "Session 1 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": null,
+    "abstracts": [
+      {"title": "Dr. Amy Speckart (Rare Book School, University of Virginia)\n\"Unfinished Genealogies: Freedom Seekers in the Household of Thomas Stone, Signer of the Declaration of Independence for Maryland\"", "abstract": "Thomas Stone National Historic Site in Maryland, the former home plantation of a signer of the Declaration of Independence, has secrets about slavery. This paper explores the life of a forgotten freedom-seeker, Gustavus Thomas (born ca. 1772), who petitioned for his freedom from Thomas Stone's estate. "},
+      {"title": "Mr. Amer Hamid (California State University, Fullerton)\n\"Decoding the Declaration: Eighteenth-Century English Poetics and the Poetics of the US Declaration of Independence\"", "abstract": "This paper examines the Declaration of Independence as a poetic text."}
+    ]
   },
   {
     "title": "Dinner",
@@ -107,7 +114,7 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Registration | Welcome | Light Refreshments ",
@@ -117,7 +124,7 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Keynote Speaker",
@@ -127,7 +134,7 @@
     "shortDescription": "Introduction. Dr. Patrick Ettinger (History, California State University, Sacramento) ",
     "longDescription": "Dr. Carter L. Hudgins (Clemson University)\n\"'For My Humanity and Decency:' Reflections on Historic Preservation's Promise to Tell America's Story\"",
     "session": "Session 2 - Plenary ",
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Panel – Book Histories in America ",
@@ -135,9 +142,12 @@
     "startTime": "2026-03-19T11:00:00 ",
     "endTime": "2026-03-19T12:00:00 ",
     "shortDescription": "Chair. Dr. Nikolaos Lazaridis (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Terri Castaneda (Anthropology, California State University, Sacramento)\n\"Expressions of American Belonging in the Work of Boston Antiquarian Abel Bowen\" \n\nDr. Michael Dorn (Independent Scholar)\n\"Shades of Autonomy in Daniel Boone\"",
+    "longDescription": "Dr. Terri Castaneda (Anthropology, California State University, Sacramento)\n\"Expressions of American Belonging in the Work of Boston Antiquarian Abel Bowen\" \n\nDr. Michael Dorn (Independent Researcher)\n\"Shades of Autonomy in Daniel Boone\"",
     "session": "Session 3 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": null,
+    "abstracts": [
+      {"title": "Dr. Michael Dorn (Independent Researcher)\n\"Shades of Autonomy in Daniel Boone\"", "abstract": "The emergence of Daniel Boone as a historical persona can be tied to early American theater as well as the nineteenth-century transformation of the North American backcountry. This paper explore that transformation."}
+    ]
   },
   {
     "title": "Tea Table Talk: Sex, Consumption, and the Politics that Shaped American Independence",
@@ -147,7 +157,7 @@
     "shortDescription": "Chair. Dr. Christi Anderson (History, California State University, California)",
     "longDescription": "Mrs. Emily Doherty\n\nA virtual conversation with a Living Historian about the importance of women in the consumer culture that informed the American Revolution.",
     "session": "Session 6 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": "women"
   },
   {
     "title": "Panel - Politics of Identity",
@@ -155,9 +165,12 @@
     "startTime": "2026-03-19T11:00:00 ",
     "endTime": "2026-03-19T12:00:00 ",
     "shortDescription": "Chair. Dr. Chris Castaneda (History, California State University, Sacramento)",
-    "longDescription": "Rebecca Simpson Menzies (TBA)\n\"An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony\"\n\nDr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"",
+    "longDescription": "Mrs. Rebecca Simpson Menzies (University of South Carolina)\n\"An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony\"\n\nDr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"",
     "session": "Session 3 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": null,
+    "abstracts": [
+      {"title": "Dr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"", "abstract": "This paper the lives of George Winchester and other Americans of the northeastern United States and how they, like many younger Americans in the post-Revolutionary War period, influenced emerging American identities."}
+    ]
   },
   {
     "title": "Visions of Freedom - Artistic Reflections of the American Revolution ",
@@ -167,7 +180,7 @@
     "shortDescription": "Chair. Dr. Clarissa Ibarra Rosales (History, California State University, Sacramento) ",
     "longDescription": "Student-centered explications that analyze the Declaration of Independence through art.",
     "session": "Session 3 - Concurrent Sessions ",
-    "isSpecial": true
+    "isSpecial": "250"
   },
   {
     "title": "Lunch",
@@ -177,17 +190,17 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Campus Tour",
-    "location": "Union Entryway",
+    "location": "West Entrance (between AIRC and the Union)",
     "startTime": "2026-03-19T13:00:00 ",
     "endTime": "2026-03-19T14:00:00 ",
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Activity - Pop-Up Histories of the United States in the Age Revolution ",
@@ -197,7 +210,7 @@
     "shortDescription": "Chair. Dr. Mona Seigel (History, California State University, Sacramento) ",
     "longDescription": null,
     "session": "Session 4 - Plenary ",
-    "isSpecial": true
+    "isSpecial": "250"
   },
   {
     "title": "Panel – Herstories in the Early America ",
@@ -207,7 +220,7 @@
     "shortDescription": "Chair. Dr. Serpil Atamaz (History, California State University, California) ",
     "longDescription": "Mrs. Elizabeth Hancox (Luiss University)\n\"'She had always the management thereof': Commercial and Legal Agency of Dutch Women in New Netherland and Colonial New York\"\n\nAlexander Von Sternberg (California State University, Long Beach)\n\"A Storm of Decay: Institutional Erosion After Salem\"",
     "session": "Session 5 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": "women"
   },
   {
     "title": "Panel – American Gods ",
@@ -217,7 +230,7 @@
     "shortDescription": "Chair. Dr. Liam Murphy (Anthropology Department Chair, California State University, Sacramento) ",
     "longDescription": "Dr. Margo Lambert (University of Cincinnati Blue Ash College)\n\"Francis Daniel Pastorius, German Immigration, and Abolition\" \n\nEric Schubert (Millersville University)\n\"Lancaster County Mennonites in the American Revolution\"",
     "session": "Session 5 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Panel – We the People",
@@ -227,7 +240,7 @@
     "shortDescription": "Chair. Dr. Tom Clark (History, California State University, Sacramento)",
     "longDescription": "Dr. Libby Cook (Independent Scholar)\n\"Reuben George: A Mechanic in the Early Republic\" \n\nDr. Stephanie Hunter McMahon (Indiana University Maurer School of Law)\n\"The Boston Tea Party and the Whiskey Rebellion Were Not About Taxes\"",
     "session": "Session 5 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Dinner",
@@ -237,7 +250,7 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Mixer (Optional) ",
@@ -247,7 +260,7 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Registration | Welcome | Light Refreshments ",
@@ -257,7 +270,7 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Panel – Freedom Seekers in the American Revolutionary Era and Beyond ",
@@ -265,19 +278,19 @@
     "startTime": "2026-03-20T10:00:00 ",
     "endTime": "2026-03-20T11:00:00 ",
     "shortDescription": "Chair. Dr. Troy Crowder (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Antonio T. Bly, (History, California State University, Sacramento) \nDr. Billy G. Smith (History, Montana State University) \nMr. Isaac Lee (History, University of Wisconsin-Madison)\n\nA review of the new Freedom Seekers database.",
+    "longDescription": "Dr. Antonio T. Bly, (Peter H. Shattuck Endowed Chair in Colonial American History, California State University, Sacramento) \nDr. Billy G. Smith (Michael P. Malone Emeritus Professor of History and Distinguished Professor of Letters and Science, Montana State University) \nMr. Isaac Lee (History, University of Wisconsin-Madison)\n\nA review of the new Freedom Seekers database.",
     "session": "Plenary ",
-    "isSpecial": false
+    "isSpecial": null
   },
   {
-    "title": "Workshop – Anansi Stories Research Writing Forum",
+    "title": "Workshop - Anansi Stories: Research Writing Forum  ",
     "location": "Pacific Room 2&3 (3rd Floor)",
     "startTime": "2026-03-20T11:00:00 ",
     "endTime": "2026-03-20T12:00:00 ",
-    "shortDescription": "Dr. Antonio T. Bly, (History, California State University, Sacramento) \nDr. Billy G. Smith (History, Montana State University) \nMr. Isaac Lee (History, University of Madison-Wisconsin)\n\nAn interactive workshop about historical thinking, imagination, and writing.",
+    "shortDescription": "Dr. Antonio T. Bly, (Peter H. Shattuck Endowed Chair in Colonial American History, California State University, Sacramento) \nDr. Billy G. Smith (Michael P. Malone Emeritus Professor of History and Distinguished Professor of Letters and Science, Montana State University) \nMr. Isaac Lee (History, University of Madison-Wisconsin)\n\nAn interactive workshop about historical thinking, imagination, and writing.",
     "longDescription": null,
     "session": "Session 6 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": "women"
   },
   {
     "title": "Panel – The Color Line in Colonial America ",
@@ -285,9 +298,9 @@
     "startTime": "2026-03-20T11:00:00 ",
     "endTime": "2026-03-20T12:00:00 ",
     "shortDescription": "Chair. Dr. Rebekkah Mulholland (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Christian Martin Brooks (California Polytechnic State University, San Luis Obispo)\n\"Afro-Californios in El Pueblo de Nuestra Señora la Reina de los Ángeles\" \n\nDr. Amanda McGee (University of Arkansas)\n\"From Subjects to Citizens?: Mapping the Transformative Landscape of Residency in Pennsylvania in the Early American Republic\" ",
+    "longDescription": "Mr. Christian Martin Brooks (California Polytechnic State University, San Luis Obispo)\n\"Afro-Californios in El Pueblo de Nuestra Señora la Reina de los Ángeles\" \n\nDr. Amanda McGee (University of Arkansas)\n\"From Subjects to Citizens?: Mapping the Transformative Landscape of Residency in Pennsylvania in the Early American Republic\" ",
     "session": "Session 6 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Panel – Interpretative Histories of Early America ",
@@ -297,7 +310,7 @@
     "shortDescription": "Chair. Dr. Candace Gregory (History, California State University, Sacramento) ",
     "longDescription": "Dr. Deborah Fisher (Pennsylvania State University)\n\"A Colonial American Ceres: Metamorphosis and Becoming in John Singleton Copley’s Mrs. Elizabeth Goldthwait\" \n\nDr. Jason Daniels (California State University, East Bay)\n\"Friends among Strangers: Quaker and Catholic Encounters in Spanish Florida and French Saint-Domingue\"",
     "session": "Session 6 - Concurrent Sessions ",
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "50 Points of Light – The Stars and Stripes ",
@@ -307,7 +320,7 @@
     "shortDescription": "Chair. Dr. Aaron Jackson (History, California State University, Sacramento) ",
     "longDescription": "A gallery of flags and service people that explores the legacy of the United States.",
     "session": "Session 6 - Concurrent Sessions ",
-    "isSpecial": true
+    "isSpecial": "250"
   },
   {
     "title": "Lunch",
@@ -317,7 +330,7 @@
     "shortDescription": null,
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   },
   {
     "title": "Roundtable Discussion | America 250 – Looking Backward, Moving Forward ",
@@ -327,7 +340,7 @@
     "shortDescription": "Chair. Dr. Sheree L. Meyer (English, California State University, Sacramento) ",
     "longDescription": "Dr. Jim German (History, California State University, Sacramento) \nDr. Brian Baker (Ethnic Studies Chair, California State University, Sacramento)\nDr. Mark Brown (Political Science, California State University, Sacramento) \nDr. Maria Quintana (History, California State University, Sacramento)\n\nA thoughtful reflection about the Declaration of Independence and its inheritance.",
     "session": "Plenary ",
-    "isSpecial": true
+    "isSpecial": "250"
   },
   {
     "title": "Concluding Statements - Closing Remarks. ",
@@ -337,6 +350,6 @@
     "shortDescription": "Dr. J. Luke Wood (President, California State University, Sacramento) ",
     "longDescription": null,
     "session": null,
-    "isSpecial": false
+    "isSpecial": null
   }
 ]
