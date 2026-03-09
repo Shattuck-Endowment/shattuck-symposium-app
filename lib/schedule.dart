@@ -407,11 +407,7 @@ class _EventCardState extends State<EventCard> {
                         end: Alignment.bottomRight,
                       )
                     : const LinearGradient(
-                        colors: [
-                          Color(0xFF6A1B9A),
-                          Colors.white,
-                          Color(0xFFFFC107),
-                        ],
+                        colors: [Color(0xFF6A1B9A), Color(0xFFF3E5F5)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),

@@ -10,14 +10,14 @@
     "isSpecial": null
   },
   {
-    "title": "I Declare! You Declare? We Declare, 1776-2026",
+    "title": "I Declare! You Declare? We Declare. 1776-2026",
     "location": "Pacific Room 2&3 (3rd Floor)",
     "startTime": "2026-03-18T10:00:00 ",
     "endTime": "2026-03-18T11:00:00 ",
     "shortDescription": "Directed by Dr. Melinda Wilson Ramsey (Theater and Dance, California State University, Sacramento) ",
     "longDescription": "Student performance of a series of speeches, poems and letters throughout American history that celebrate and question the Declaration of Independence.",
     "session": null,
-    "isSpecial": "women"
+    "isSpecial": null
   },
   {
     "title": "“Another Tribe” – Revolutionary Women in Revolutionary Times ",
@@ -27,7 +27,7 @@
     "shortDescription": "Chair. Mrs. Donnamaria Bly (History, Old Dominion University) ",
     "longDescription": "A pictorial examination of women and their role in the Age of Revolution",
     "session": null,
-    "isSpecial": "women"
+    "isSpecial": null
   },
   {
     "title": "Peter H. Shattuck Rare Books Collection Exhibit",
@@ -90,7 +90,7 @@
     "shortDescription": "Chair. Dr. Aaron Cohen (History, California State University, California) ",
     "longDescription": "Mrs. Nicole Brown, ABA (The Thomas Jefferson Foundation) \nMrs. Tamia Haygood, ABA (William and Mary) \nMr. John Balz, ABA (University of Wisconsin-Madison)\n\nA podcast and interview with three winners of the Anansi Prize.",
     "session": "Session 1 - Concurrent Sessions ",
-    "isSpecial": "women"
+    "isSpecial": null
   },
   {
     "title": "Panel – Text, Context, Subtext ",
@@ -156,8 +156,8 @@
     "endTime": "2026-03-19T12:00:00 ",
     "shortDescription": "Chair. Dr. Christi Anderson (History, California State University, California)",
     "longDescription": "Mrs. Emily Doherty\n\nA virtual conversation with a Living Historian about the importance of women in the consumer culture that informed the American Revolution.",
-    "session": "Session 6 - Concurrent Sessions ",
-    "isSpecial": "women"
+    "session": "Session 3 - Concurrent Sessions ",
+    "isSpecial": null
   },
   {
     "title": "Panel - Politics of Identity",
@@ -165,7 +165,7 @@
     "startTime": "2026-03-19T11:00:00 ",
     "endTime": "2026-03-19T12:00:00 ",
     "shortDescription": "Chair. Dr. Chris Castaneda (History, California State University, Sacramento)",
-    "longDescription": "Mrs. Rebecca Simpson Menzies (University of South Carolina)\n\"An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony\"\n\nDr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"",
+    "longDescription": "Mrs. Rebecca Simpson Menzies (University of Southern California)\n\"An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony\"\n\nDr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"",
     "session": "Session 3 - Concurrent Sessions ",
     "isSpecial": null,
     "abstracts": [
@@ -213,14 +213,14 @@
     "isSpecial": "250"
   },
   {
-    "title": "Panel – Herstories in the Early America ",
+    "title": "Panel – American Justice?",
     "location": "Maidu Room (3rd Floor)",
     "startTime": "2026-03-19T16:00:00 ",
     "endTime": "2026-03-19T17:00:00 ",
     "shortDescription": "Chair. Dr. Serpil Atamaz (History, California State University, California) ",
-    "longDescription": "Mrs. Elizabeth Hancox (Luiss University)\n\"'She had always the management thereof': Commercial and Legal Agency of Dutch Women in New Netherland and Colonial New York\"\n\nAlexander Von Sternberg (California State University, Long Beach)\n\"A Storm of Decay: Institutional Erosion After Salem\"",
+    "longDescription": "\"A Storm of Decay: Institutional Erosion After Salem\"\n\nDr. Libby Cook (Independent Scholar)\n\"Reuben George: A Mechanic in the Early Republic\" \n\nDr. Stephanie Hunter McMahon (Indiana University Maurer School of Law)\n\"The Boston Tea Party and the Whiskey Rebellion Were Not About Taxes\"\n\nMr. Alexander Von Sternberg (California State University, Long Beach)",
     "session": "Session 5 - Concurrent Sessions ",
-    "isSpecial": "women"
+    "isSpecial": null
   },
   {
     "title": "Panel – American Gods ",
@@ -228,17 +228,7 @@
     "startTime": "2026-03-19T16:00:00 ",
     "endTime": "2026-03-19T17:00:00 ",
     "shortDescription": "Chair. Dr. Liam Murphy (Anthropology Department Chair, California State University, Sacramento) ",
-    "longDescription": "Dr. Margo Lambert (University of Cincinnati Blue Ash College)\n\"Francis Daniel Pastorius, German Immigration, and Abolition\" \n\nEric Schubert (Millersville University)\n\"Lancaster County Mennonites in the American Revolution\"",
-    "session": "Session 5 - Concurrent Sessions ",
-    "isSpecial": null
-  },
-  {
-    "title": "Panel – We the People",
-    "location": "Summit Room (3rd Floor)",
-    "startTime": "2026-03-19T16:00:00 ",
-    "endTime": "2026-03-19T17:00:00 ",
-    "shortDescription": "Chair. Dr. Tom Clark (History, California State University, Sacramento)",
-    "longDescription": "Dr. Libby Cook (Independent Scholar)\n\"Reuben George: A Mechanic in the Early Republic\" \n\nDr. Stephanie Hunter McMahon (Indiana University Maurer School of Law)\n\"The Boston Tea Party and the Whiskey Rebellion Were Not About Taxes\"",
+    "longDescription": "Dr. Margo Lambert (University of Cincinnati Blue Ash College)\n\"Francis Daniel Pastorius, German Immigration, and Abolition\" \n\nMr. Eric Schubert (Millersville University)\n\"Lancaster County Mennonites in the American Revolution\"",
     "session": "Session 5 - Concurrent Sessions ",
     "isSpecial": null
   },
@@ -290,7 +280,7 @@
     "shortDescription": "Dr. Antonio T. Bly, (Peter H. Shattuck Endowed Chair in Colonial American History, California State University, Sacramento) \nDr. Billy G. Smith (Michael P. Malone Emeritus Professor of History and Distinguished Professor of Letters and Science, Montana State University) \nMr. Isaac Lee (History, University of Madison-Wisconsin)\n\nAn interactive workshop about historical thinking, imagination, and writing.",
     "longDescription": null,
     "session": "Session 6 - Concurrent Sessions ",
-    "isSpecial": "women"
+    "isSpecial": null
   },
   {
     "title": "Panel – The Color Line in Colonial America ",
@@ -298,7 +288,7 @@
     "startTime": "2026-03-20T11:00:00 ",
     "endTime": "2026-03-20T12:00:00 ",
     "shortDescription": "Chair. Dr. Rebekkah Mulholland (History, California State University, Sacramento) ",
-    "longDescription": "Mr. Christian Martin Brooks (California Polytechnic State University, San Luis Obispo)\n\"Afro-Californios in El Pueblo de Nuestra Señora la Reina de los Ángeles\" \n\nDr. Amanda McGee (University of Arkansas)\n\"From Subjects to Citizens?: Mapping the Transformative Landscape of Residency in Pennsylvania in the Early American Republic\" ",
+    "longDescription": "Dr. Amanda McGee (University of Arkansas)\n\"From Subjects to Citizens?: Mapping the Transformative Landscape of Residency in Pennsylvania in the Early American Republic\"\n\nMr. Christian Martin Brooks (California Polytechnic State University, San Luis Obispo)\n\"Afro-Californios in El Pueblo de Nuestra Señora la Reina de los Ángeles\"",
     "session": "Session 6 - Concurrent Sessions ",
     "isSpecial": null
   },

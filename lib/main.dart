@@ -152,9 +152,18 @@ class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   Future<void> _launchRegistration() async {
-    // TODO: Replace this with the actual registration URL
     final Uri url = Uri.parse(
       'https://docs.google.com/forms/d/e/1FAIpQLSevZg1n-MUGCOrQ6-uuGYAdaffpflyuY1H17kJZFxMvzIT5Zg/viewform',
+    );
+
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+  Future<void> _launchDirectory() async {
+    final Uri url = Uri.parse(
+      'https://akalustat.github.io/shattuck-symposium-links/',
     );
 
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
@@ -191,11 +200,19 @@ class HomeView extends StatelessWidget {
               const SizedBox(height: 16),
               _buildActionCard(
                 context,
-                title: "Register Here",
-                subtitle: "Go",
-                iconIOS:
-                    CupertinoIcons.arrow_up_right_circle, // Ticket icon for iOS
-                iconAndroid: Icons.arrow_outward, // Ticket icon for Android
+                title: "Links Directory",
+                subtitle: "",
+                iconIOS: CupertinoIcons.link,
+                iconAndroid: Icons.link,
+                onTap: _launchDirectory,
+              ),
+              const SizedBox(height: 16),
+              _buildActionCard(
+                context,
+                title: "Register",
+                subtitle: "",
+                iconIOS: CupertinoIcons.arrow_up_right_circle,
+                iconAndroid: Icons.arrow_outward,
                 onTap: _launchRegistration,
               ),
             ],
