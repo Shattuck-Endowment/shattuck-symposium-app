@@ -79,7 +79,8 @@
     "isSpecial": null,
     "session": "Session 1 - Concurrent Sessions ",
     "abstracts": [
-      {"title": "Mr. Anthony Bratzler (Independent Historian) \n\"The Emergence of Colonial Unity: The Stamp Act Congress and the Formation of American Political capacity\"", "abstract": "This paper argues that the Stamp Act Congress of 1765 functioned as a structural turning point in late-colonial history by connecting previously fragmented colonial networks into a self-reinforcing -autocatalytic- intercolonial network that enabled sustained collective action. "}
+      {"title": "Mr. Anthony Bratzler (Independent Historian) \n\"The Emergence of Colonial Unity: The Stamp Act Congress and the Formation of American Political capacity\"", "abstract": "This paper argues that the Stamp Act Congress of 1765 functioned as a structural turning point in late-colonial history by connecting previously fragmented colonial networks into a self-reinforcing -autocatalytic- intercolonial network that enabled sustained collective action. "},
+      {"titile": "Mr. Jerry Kennedy (History, California State University, Sacramento)\n\"The Forgotten Act: How the Prohibitory Act of 1775 Tipped the American Colonies toward Independence\"", "abstract": "This paper examines the Prohibitory Act and its impact in the colonies."}
     ]
   },
   {
@@ -102,8 +103,8 @@
     "session": "Session 1 - Concurrent Sessions ",
     "isSpecial": null,
     "abstracts": [
-      {"title": "Dr. Amy Speckart (Rare Book School, University of Virginia)\n\"Unfinished Genealogies: Freedom Seekers in the Household of Thomas Stone, Signer of the Declaration of Independence for Maryland\"", "abstract": "Thomas Stone National Historic Site in Maryland, the former home plantation of a signer of the Declaration of Independence, has secrets about slavery. This paper explores the life of a forgotten freedom-seeker, Gustavus Thomas (born ca. 1772), who petitioned for his freedom from Thomas Stone's estate. "},
-      {"title": "Mr. Amer Hamid (California State University, Fullerton)\n\"Decoding the Declaration: Eighteenth-Century English Poetics and the Poetics of the US Declaration of Independence\"", "abstract": "This paper examines the Declaration of Independence as a poetic text."}
+      {"title": "Dr. Amy Speckart (Rare Book School, University of Virginia)\n\"Unfinished Genealogies: Freedom Seekers in the Household of Thomas Stone, Signer of the Declaration of Independence for Maryland\"", "abstract": "Gustavus Thomas filed the first and only petition for freedom from his enslaver, Thomas Stone’s estate in 1791. He was one of the legal “winners’ in the freedom suits of Revolutionary Maryland. This work carefully pieces together fragments of the Mingo-Thomas family network, integrating that history into Thomas Stone’s family story."},
+      {"title": "Mr. Amer Hamid (California State University, Fullerton)\n\"Decoding the Declaration: Eighteenth-Century English Poetics and the Poetics of the US Declaration of Independence\"", "abstract": "This paper examines other writings contemporary to the Declaration for poetical meaning as well as the Declaration. It concludes that the Declaration is ultimately a poetical text whose meanings and arguments can only be understood while taking poetics into account."}
     ]
   },
   {
@@ -142,10 +143,11 @@
     "startTime": "2026-03-19T11:00:00 ",
     "endTime": "2026-03-19T12:00:00 ",
     "shortDescription": "Chair. Dr. Nikolaos Lazaridis (History, California State University, Sacramento) ",
-    "longDescription": "Dr. Terri Castaneda (Anthropology, California State University, Sacramento)\n\"Expressions of American Belonging in the Work of Boston Antiquarian Abel Bowen\" \n\nDr. Michael Dorn (Independent Researcher)\n\"Shades of Autonomy in Daniel Boone\"",
+    "longDescription": "Dr. Terri Castaneda\n\nDr. Michael Dorn (Independent Researcher)\n\"Shades of Autonomy in Daniel Boone\"",
     "session": "Session 3 - Concurrent Sessions ",
     "isSpecial": null,
     "abstracts": [
+      {"title": "Dr. Terri Castaneda  (Anthropology, California State University, Sacramento)\n\"Expressions of American Belonging in the Work of Boston Antiquarian Abel Bowen\"", "abstract":"This paper tells the story of Abel Bowen, Jr., and his brothers, who started a printing business in New England and who helped found the Bostonian Society."},
       {"title": "Dr. Michael Dorn (Independent Researcher)\n\"Shades of Autonomy in Daniel Boone\"", "abstract": "The emergence of Daniel Boone as a historical persona can be tied to early American theater as well as the nineteenth-century transformation of the North American backcountry. This paper explore that transformation."}
     ]
   },
@@ -165,11 +167,12 @@
     "startTime": "2026-03-19T11:00:00 ",
     "endTime": "2026-03-19T12:00:00 ",
     "shortDescription": "Chair. Dr. Chris Castaneda (History, California State University, Sacramento)",
-    "longDescription": "Mrs. Rebecca Simpson Menzies (University of Southern California)\n\"An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony\"\n\nDr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"",
+    "longDescription": "Dr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"\n\nMrs. Rebecca Simpson Menzies (University of Southern California)\n\"An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony\"",
     "session": "Session 3 - Concurrent Sessions ",
     "isSpecial": null,
     "abstracts": [
-      {"title": "Dr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"", "abstract": "This paper the lives of George Winchester and other Americans of the northeastern United States and how they, like many younger Americans in the post-Revolutionary War period, influenced emerging American identities."}
+      {"title": "Dr. Michael Ward (Ventura College)\n\"American Identities, National and Regional: the ‘Mischiefs of Faction,’ the Madisonian Solution, and Early Sources of Southern Identity\"", "abstract": "This paper the lives of George Winchester and other Americans of the northeastern United States and how they, like many younger Americans in the post-Revolutionary War period, influenced emerging American identities."},
+      {"title": "Mrs. Rebecca Simpson Menzies (University of Southern California)\n\"An Oath Breaker or an Unjust Judge? The Story of a Seventeenth Connecticut Plantation that Seceded to the Bay Colony\"", "abstract": "This paper follows the court case of William Pynchon, founder of Springfield under the Connecticut General Court. "}
     ]
   },
   {
@@ -220,6 +223,11 @@
     "shortDescription": "Chair. Dr. Serpil Atamaz (History, California State University, California) ",
     "longDescription": "Dr. Libby Cook (Independent Scholar)\n\"Reuben George: A Mechanic in the Early Republic\" \n\nDr. Stephanie Hunter McMahon (Indiana University Maurer School of Law)\n\"The Boston Tea Party and the Whiskey Rebellion Were Not About Taxes\"\n\nMr. Alexander Von Sternberg (California State University, Long Beach)\n\"A Storm of Decay: Institutional Erosion After Salem\"",
     "session": "Session 5 - Concurrent Sessions ",
+    "abstracts": [
+      {"title": "Dr. Libby Cook (Independent Scholar)\n\"Reuben George: A Mechanic in the Early Republic\"", "abstract": "Richmond carpenter Reuben George parlayed small successes into larger contracts, diversified his income streams and became a trusted municipal contractor. Viewed historically, his career, the focus of this paper, serves as a prism through which to delineate the challenges faced by skilled laborers in early America."},
+      {"title": "Dr. Stephanie Hunter McMahon (Indiana University Maurer School of Law)\n\"The Boston Tea Party and the Whiskey Rebellion Were Not About Taxes\"", "abstract": "The Boston Tea Party is often remembered with pride and seen as a victory, while the Whiskey Rebellion was a loss with the prerequisite bad guys. The difference in attitude towards these events sheds light on how we see unlawful tax evasion and how we have incorporated it into our self-perception."},
+      {"title": "Mr. Alexander Von Sternberg (California State University, Long Beach)\n\"A Storm of Decay: Institutional Erosion After Salem\"", "abstract": "This paper explores the aftermath of Salem Witch Trials of 1692-1693."}
+    ],
     "isSpecial": null
   },
   {
@@ -228,8 +236,12 @@
     "startTime": "2026-03-19T16:00:00 ",
     "endTime": "2026-03-19T17:00:00 ",
     "shortDescription": "Chair. Dr. Liam Murphy (Anthropology Department Chair, California State University, Sacramento) ",
-    "longDescription": "Dr. Margo Lambert (University of Cincinnati Blue Ash College)\n\"Francis Daniel Pastorius, German Immigration, and Abolition\" \n\nMr. Eric Schubert (Millersville University)\n\"Lancaster County Mennonites in the American Revolution\"",
+    "longDescription": "Dr. Margo M. Lambert (University of Cincinnati Blue Ash College)\n\"Francis Daniel Pastorius, German Immigration, and Abolition\" \n\nMr. Eric Schubert (Millersville University)\n\"Lancaster County Mennonites in the American Revolution\"",
     "session": "Session 5 - Concurrent Sessions ",
+    "abstracts": [
+      {"title": "Dr. Margo M. Lambert (University of Cincinnati Blue Ash College)\n\"Francis Daniel Pastorius, German Immigration, and Abolition\"", "abstract": "This paper is about the Germantown Protest against slavery in 1688."},
+      {"title": "Mr. Eric Schubert (Millersville University)\n\"Lancaster County Mennonites in the American Revolution\"", "abstract": "Through accounts from Ephrata Cloister, Anabaptist Historians, and Lancaster County archives, the impact the Mennonites had on history is the focus of this paper."}
+    ],
     "isSpecial": null
   },
   {
@@ -290,6 +302,10 @@
     "shortDescription": "Chair. Dr. Rebekkah Mulholland (History, California State University, Sacramento) ",
     "longDescription": "Dr. Amanda McGee (University of Arkansas)\n\"From Subjects to Citizens?: Mapping the Transformative Landscape of Residency in Pennsylvania in the Early American Republic\"\n\nMr. Christian Martin Brooks (California Polytechnic State University, San Luis Obispo)\n\"Afro-Californios in El Pueblo de Nuestra Señora la Reina de los Ángeles\"",
     "session": "Session 6 - Concurrent Sessions ",
+    "abstracts": [
+      {"title": "Mr. Christian Martin Brooks (California Polytechnic State University, San Luis Obispo)\n\"Afro-Californios in El Pueblo de Nuestra Señora la Reina de los Ángeles\"", "abstract": "This paper seeks to examine the lives of Afro-Californios in the founding of Los Angeles in 1781."},
+      {"title": "Dr. Amanda McGee (University of Arkansas)\n\"From Subjects to Citizens?: Mapping the Transformative Landscape of Residency in Pennsylvania in the Early American Republic\"", "abstract": "Using several court cases as an analytical point of entry, this paper explores how changing interpretations of who was and was not considered a resident more clearly defined the territorial extent of Pennsylvania’s gradualism, or the manumission of slaves."}
+    ],
     "isSpecial": null
   },
   {
@@ -300,6 +316,10 @@
     "shortDescription": "Chair. Dr. Candace Gregory (History, California State University, Sacramento) ",
     "longDescription": "Dr. Deborah Fisher (Pennsylvania State University)\n\"A Colonial American Ceres: Metamorphosis and Becoming in John Singleton Copley’s Mrs. Elizabeth Goldthwait\" \n\nDr. Jason Daniels (California State University, East Bay)\n\"Friends among Strangers: Quaker and Catholic Encounters in Spanish Florida and French Saint-Domingue\"",
     "session": "Session 6 - Concurrent Sessions ",
+    "abstracts": [
+      {"title": "Dr. Deborah Fisher (Pennsylvania State University)\n\"A Colonial American Ceres: Metamorphosis and Becoming in John Singleton Copley’s Mrs. Elizabeth Goldthwait\"", "abstract": "This paper explores John Singleton Copley’s 1771 portrait in the context of a metamorphic reading. Based on this premise, it probes the reception of classicism among indigenous peoples, African Americans, and other underprivileged segments of society."},
+      {"title": "Jason Daniels (California State University, East Bay)\n\"Friends among Strangers: Quaker and Catholic Encounters in Spanish Florida and French Saint-Domingue\"", "abstract": "This paper reframes two well-documented moments of Quaker peril overseas, a shipwreck in Spanish Florida (1696) and wartime seizure in French Saint-Domingue (1709) to argue that “captivity” in Catholic America functioned less as a confessional morality tale than as a routine mode of imperial governance in a multi-jurisdictional Atlantic world."}
+    ],
     "isSpecial": null
   },
   {
