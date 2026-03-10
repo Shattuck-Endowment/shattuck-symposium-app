@@ -226,14 +226,6 @@ class HomeView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Introduction",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
-        ),
         const SizedBox(height: 12),
         Container(
           padding: const EdgeInsets.all(20),
@@ -241,10 +233,23 @@ class HomeView extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
           ),
-          child: const Text(
-            "A bi-annual forum for scholars who explore the colonial and revolutionary history of America. The symposium features prominent scholars in early American history as keynote speakers.",
-            style: TextStyle(fontSize: 15, color: Colors.black54, height: 1.5),
+          child: Text.rich(
+            textAlign: TextAlign.justify,
+            TextSpan(
+              text:
+                  "Hosted by the Department of History at Sac State and the Peter H. Shattuck Endowment, the purpose of the Shattuck Colonial American History Symposium is to foster critical thinking about the past. \n\n“The past is a foreign country; they do things differently there.”\nL.P. Hartley, ",
+              children: <TextSpan>[
+                TextSpan(
+                  text: "The Go-Between.",
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ],
+            ),
           ),
+          // const Text(
+          //   "Hosted by the Department of History at Sac State and the Peter H. Shattuck Endowment, the purpose of the Shattuck Colonial American History Symposium is to foster critical thinking about the past. “The past is a foreign country; they do things differently there.” L.P. Hartley, The Go-Between.",
+          //   style: TextStyle(fontSize: 15, color: Colors.black54, height: 1.5),
+          // ),
         ),
       ],
     );
