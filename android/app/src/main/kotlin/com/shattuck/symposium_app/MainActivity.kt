@@ -1,4 +1,4 @@
-package shattuck_endowment.shattuck_app
+package com.shattuck.symposium_app
 
 import io.flutter.embedding.android.FlutterActivity
 
