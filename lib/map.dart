@@ -3,26 +3,168 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:xml/xml.dart';
 
+// --- SPATIAL REGISTRY ---
 class SpatialMetadata {
+  final String assetPath;
   final List<String> targetRooms;
-  const SpatialMetadata(this.targetRooms);
+
+  const SpatialMetadata({required this.assetPath, required this.targetRooms});
 }
 
 class LocationRegistry {
   static const String unionMapAsset = 'assets/maps/union_3rd_floor.svg';
+  static const String campusMapAsset = 'assets/maps/campus_map.svg';
 
   static const Map<String, SpatialMetadata> directory = {
-    'Pacific Room 1 (3rd Floor)': SpatialMetadata(['3290_pacific']),
-    'Pacific Room 2&3 (3rd Floor)': SpatialMetadata(['3290_pacific']),
-    'Folsom Room (3rd Floor)': SpatialMetadata(['3011b_folsom']),
-    'Miwok Room (3rd Floor)': SpatialMetadata(['3017b_miwok']),
-    'Maidu Room (3rd Floor)': SpatialMetadata(['3017a_maidu']),
-    'Foothill Suite (3rd Floor)': SpatialMetadata([
-      '3011a_auburn',
-      '3011b_folsom',
-    ]),
-    'Auburn Room (3rd Floor)': SpatialMetadata(['3011a_auburn']),
-    'Green and Gold Room (3rd Floor)': SpatialMetadata(['3201_green_and_gold']),
+    // --- UNION 3RD FLOOR ---
+    'Pacific Room 1 (3rd Floor)': SpatialMetadata(
+      assetPath: unionMapAsset,
+      targetRooms: ['3290_pacific'],
+    ),
+    'Pacific Room 2&3 (3rd Floor)': SpatialMetadata(
+      assetPath: unionMapAsset,
+      targetRooms: ['3290_pacific'],
+    ),
+    'Folsom Room (3rd Floor)': SpatialMetadata(
+      assetPath: unionMapAsset,
+      targetRooms: ['3011b_folsom'],
+    ),
+    'Miwok Room (3rd Floor)': SpatialMetadata(
+      assetPath: unionMapAsset,
+      targetRooms: ['3017b_miwok'],
+    ),
+    'Maidu Room (3rd Floor)': SpatialMetadata(
+      assetPath: unionMapAsset,
+      targetRooms: ['3017a_maidu'],
+    ),
+    'Foothill Suite (3rd Floor)': SpatialMetadata(
+      assetPath: unionMapAsset,
+      targetRooms: ['3011a_auburn', '3011b_folsom'],
+    ),
+    'Auburn Room (3rd Floor)': SpatialMetadata(
+      assetPath: unionMapAsset,
+      targetRooms: ['3011a_auburn'],
+    ),
+    'Green and Gold Room (3rd Floor)': SpatialMetadata(
+      assetPath: unionMapAsset,
+      targetRooms: ['3201_green_and_gold'],
+    ),
+
+    'Library Breezeway': SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['library'],
+    ),
+    'Library Quad': SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['library_quad'],
+    ),
+    "Donald & Beverly Gerth Special Collections & University Archives":
+        SpatialMetadata(assetPath: campusMapAsset, targetRooms: ["library"]),
+    'West Entrance (between AIRC and the Union)': SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['airc'],
+    ),
+    "Sacramento Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['sacramento'],
+    ),
+    "Yosemite Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['yosemite'],
+    ),
+    "Solano Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['solano'],
+    ),
+    "Kadema Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['kadema'],
+    ),
+    "Lassen Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['lassen'],
+    ),
+    "Mariposa Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['mariposa'],
+    ),
+    "Eureka Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['eureka'],
+    ),
+    "Douglass Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['douglass'],
+    ),
+    "Calaveras Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['calaveras'],
+    ),
+    "Alpine Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['alpine'],
+    ),
+    "Brighton Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['brighton'],
+    ),
+    "Shasta Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['shasta'],
+    ),
+    "Riverfont": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['riverfront_del_norte'],
+    ),
+    "Del Norte Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['riverfront_del_norte'],
+    ),
+    "Mendocino Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['mendocino'],
+    ),
+    "Placer Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['placer'],
+    ),
+    "Sequoia Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['sequoia_humboldt'],
+    ),
+    "Humboldt Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['sequoia_humboldt'],
+    ),
+    "Riverside Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['riversite'],
+    ),
+    "Santa Clara Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['santa_clara'],
+    ),
+    "Capistrano Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['capistrano'],
+    ),
+    "Amador Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['amador'],
+    ),
+    "Tahoe Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['tahoe'],
+    ),
+    "Benicia Hall": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['benicia'],
+    ),
+    "AIRC": SpatialMetadata(assetPath: campusMapAsset, targetRooms: ['airc']),
+    "University Union": SpatialMetadata(
+      assetPath: campusMapAsset,
+      targetRooms: ['union'],
+    ),
   };
 
   static SpatialMetadata? lookup(String locationName) {
@@ -30,11 +172,11 @@ class LocationRegistry {
   }
 }
 
+// --- DOM MANIPULATION ENGINE ---
 class MapParser {
   static Future<String> injectHighlight(SpatialMetadata metadata) async {
-    final String rawSvg = await rootBundle.loadString(
-      LocationRegistry.unionMapAsset,
-    );
+    // THE PIVOT: Dynamically load the correct asset based on the metadata
+    final String rawSvg = await rootBundle.loadString(metadata.assetPath);
     final XmlDocument document = XmlDocument.parse(rawSvg);
 
     // CRITICAL: Strip physical dimensions to prevent layout collapse
@@ -52,12 +194,9 @@ class MapParser {
 
       if (roomAttr != null && metadata.targetRooms.contains(roomAttr)) {
         // High-visibility yellow injection
-        element.setAttribute('fill', '#FFDE00'); // Vibrant Gold/Yellow
+        element.setAttribute('fill', '#FFDE00');
         element.setAttribute('fill-opacity', '0.9');
-        element.setAttribute(
-          'stroke',
-          '#222222',
-        ); // Stark dark stroke for edge contrast
+        element.setAttribute('stroke', '#222222');
         element.setAttribute('stroke-width', '4');
       }
     }
