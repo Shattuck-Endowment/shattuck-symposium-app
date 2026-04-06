@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'map.dart';
+
 class EventAbstract {
   final String title;
   final String content;
@@ -375,6 +377,31 @@ class _EventCardState extends State<EventCard> {
     );
   }
 
+  void _presentSpatialMap(BuildContext context, String locationString) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24.0)),
+      ),
+      showDragHandle: true,
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.85,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(24.0),
+            ),
+            // Ensure map.dart exports DynamicMapViewer so this resolves correctly
+            child: DynamicMapViewer(eventLocation: locationString),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final bool isLive = widget.event.isLive;
@@ -464,14 +491,52 @@ class _EventCardState extends State<EventCard> {
                           ),
                           const SizedBox(height: 6),
                         ],
-                        Text(
-                          widget.event.location,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w600,
+
+                        // --- NEW INTERACTIVE LOCATION ROW ---
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () => _presentSpatialMap(
+                              context,
+                              widget.event.location,
+                            ),
+                            borderRadius: BorderRadius.circular(6.0),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 4.0,
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    CupertinoIcons.map_pin_ellipse,
+                                    size: 16,
+                                    color: Color(0xFF043927),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Flexible(
+                                    child: Text(
+                                      widget.event.location,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: Color(0xFF043927),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  const Icon(
+                                    CupertinoIcons.chevron_right,
+                                    size: 14,
+                                    color: Colors.grey,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
+
+                        // --- END INTERACTIVE LOCATION ROW ---
                         const SizedBox(height: 4),
                         Text(
                           widget.event.title,
