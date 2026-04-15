@@ -14,8 +14,116 @@ class SpatialMetadata {
 class LocationRegistry {
   static const String unionMapAsset = 'assets/maps/union_3rd_floor.svg';
   static const String campusMapAsset = 'assets/maps/campus_map.svg';
+  static const String firstFloorUnion = 'assets/maps/union_1rst_floor.svg';
+  static const String secondFloorUnion = 'assets/maps/union_2nd_floor.svg';
 
   static const Map<String, SpatialMetadata> directory = {
+    // --- UNION 1RST FLOOR ---
+    'Hinde Auditorium (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['hinde_auditorium'],
+    ),
+    'Ballroom 1 (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['ballroom_one'],
+    ),
+    'Ballroom 2 (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['ballroom_two'],
+    ),
+    'Ballroom 3 (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['ballroom_three'],
+    ),
+    'Union Ballroom (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['ballroom_one', 'ballroom_two', 'ballroom_three'],
+    ),
+    'Sequoia Room (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['sequoia_1001a'],
+    ),
+    'Cypress Room (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['cypress_1001b'],
+    ),
+    'Lobby Suite (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['sequoia_1001a', 'cypress_1001b'],
+    ),
+    'Redwood Room (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['redwood_1030'],
+    ),
+    'Serna Plaza (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['stage_serna'],
+    ),
+    'Outdoor Stage (Union)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['stage_serna'],
+    ),
+    'Games Room (1st Floor)': SpatialMetadata(
+      assetPath: firstFloorUnion,
+      targetRooms: ['games_1235'],
+    ),
+    // --- UNION 2ND FLOOR ---
+    'Orchard Suite (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['orchard_2011'],
+    ),
+    'Orchard Room 1 (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['orchard_2011'],
+    ),
+    'Orchard Room 2 (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['orchard_2011'],
+    ),
+    'Orchard Room 3 (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['orchard_2011'],
+    ),
+    'Cottonwood Suite (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['cottonwood_2290'],
+    ),
+    'Cottonwood Room 1 (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['cottonwood_2290'],
+    ),
+    'Cottonwood Room 2 (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['cottonwood_2290'],
+    ),
+    'Cottonwood Room 3 (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['cottonwood_2290'],
+    ),
+    'Forest Suite (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['walnut_2013a', 'oak_2013b'],
+    ),
+    'Walnut Room (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['walnut_2013a'],
+    ),
+    'Oak Room (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['oak_2013b'],
+    ),
+    'Computer Lounge (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['computer_lounge_2060'],
+    ),
+    'Fireplace Lounge (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['fireplace_lounge_2050'],
+    ),
+    'North Lounge (2nd Floor)': SpatialMetadata(
+      assetPath: secondFloorUnion,
+      targetRooms: ['north_lounge_2201'],
+    ),
     // --- UNION 3RD FLOOR ---
     'Pacific Room 1 (3rd Floor)': SpatialMetadata(
       assetPath: unionMapAsset,
@@ -286,7 +394,7 @@ class _DynamicMapViewerState extends State<DynamicMapViewer> {
 
           return Stack(
             children: [
-              // 1. The Map Layer
+              //Map Layer
               InteractiveViewer(
                 minScale:
                     0.5, // Allow zooming out to see the entire massive map
@@ -296,7 +404,7 @@ class _DynamicMapViewerState extends State<DynamicMapViewer> {
                 boundaryMargin: const EdgeInsets.all(200),
                 child: SvgPicture.string(
                   snapshot.data!,
-                  // THE FIX: Base the initial dimensions on the screen HEIGHT.
+                  // Base the initial dimensions on the screen HEIGHT.
                   // This blows the map up, pushing the edges off-screen to invite panning.
                   width: screenHeight * 1.2,
                   height: screenHeight * 1.2,
@@ -304,7 +412,7 @@ class _DynamicMapViewerState extends State<DynamicMapViewer> {
                 ),
               ),
 
-              // 2. The Floating UI Overlay
+              //  Floating UI Overlay
               Positioned(
                 bottom: 32,
                 left: 0,

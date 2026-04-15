@@ -74,6 +74,8 @@ flutter:
     - assets/img/Peter H Shattuck.jpg
     - assets/OFL.txt
     - assets/maps/union_3rd_floor.svg
+    - assets/maps/union_1rst_floor.svg
+    - assets/maps/union_2nd_floor.svg
     - assets/maps/campus_map.svg
 
 flutter_launcher_icons:
